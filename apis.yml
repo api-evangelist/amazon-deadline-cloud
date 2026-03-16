@@ -1,0 +1,72 @@
+aid: amazon-deadline-cloud
+name: Amazon Deadline Cloud
+description: >-
+  Amazon Deadline Cloud is a fully managed render farm service that makes it
+  easy to set up, deploy, and scale rendering workloads in AWS. It supports
+  popular rendering and simulation applications, providing tools to submit,
+  track, and manage rendering jobs at scale without managing infrastructure.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Rendering
+  - Visual Effects
+  - Media
+  - Compute
+  - AWS
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/apis.yml
+created: '2026-03-16'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+apis:
+  - aid: amazon-deadline-cloud:amazon-deadline-cloud-api
+    name: Amazon Deadline Cloud API
+    description: >-
+      The Amazon Deadline Cloud API provides programmatic access to manage farms,
+      queues, fleets, jobs, and workers for cloud-based rendering and
+      simulation workloads on AWS.
+    humanURL: https://aws.amazon.com/deadline-cloud/
+    baseURL: https://deadline.amazonaws.com
+    tags:
+      - Rendering
+      - Media Production
+      - Cloud Computing
+    properties:
+      - type: Documentation
+        url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
+      - type: OpenAPI
+        url: https://api.apis.guru/v2/specs/amazonaws.com/deadline/2023-10-12/openapi.yaml
+      - type: Getting Started
+        url: https://aws.amazon.com/deadline-cloud/getting-started/
+      - type: Pricing
+        url: https://aws.amazon.com/deadline-cloud/pricing/
+      - type: FAQ
+        url: https://aws.amazon.com/deadline-cloud/faqs/
+common:
+  - type: Portal
+    url: https://aws.amazon.com/deadline-cloud/
+  - type: Website
+    url: https://aws.amazon.com/deadline-cloud/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/deadline-cloud/
+  - type: Terms of Service
+    url: https://aws.amazon.com/service-terms/
+  - type: Privacy Policy
+    url: https://aws.amazon.com/privacy/
+  - type: Support
+    url: https://aws.amazon.com/premiumsupport/
+  - type: GitHub Organization
+    url: https://github.com/aws
+  - type: Console
+    url: https://console.aws.amazon.com/deadline-cloud/
+  - type: Sign Up
+    url: https://portal.aws.amazon.com/billing/signup
+  - type: Login
+    url: https://signin.aws.amazon.com/
+  - type: Status
+    url: https://health.aws.amazon.com/health/status
+  - type: Contact
+    url: https://aws.amazon.com/contact-us/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
