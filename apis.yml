@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - AWS
+  - Compute
+  - Media
   - Rendering
   - Visual Effects
-  - Media
-  - Compute
-  - AWS
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://aws.amazon.com/deadline-cloud/
     baseURL: https://deadline.amazonaws.com
     tags:
-      - Rendering
-      - Media Production
       - Cloud Computing
+      - Media Production
+      - Rendering
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
