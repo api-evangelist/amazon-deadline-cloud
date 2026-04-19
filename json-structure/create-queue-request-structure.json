@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/create-queue-request-structure.json",
+  "title": "Create Queue Request",
+  "description": "Request body for creating a job queue.",
+  "type": "typedMap",
+  "fields": {
+    "displayName": {
+      "type": "str",
+      "description": "displayName"
+    },
+    "description": {
+      "type": "str",
+      "description": "description"
+    },
+    "defaultBudgetAction": {
+      "type": "str",
+      "description": "defaultBudgetAction"
+    }
+  }
+}

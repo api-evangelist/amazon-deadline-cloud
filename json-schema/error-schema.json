@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-schema/error-schema.json",
+  "title": "Error",
+  "description": "Standard error response from the Deadline Cloud API.",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    }
+  }
+}

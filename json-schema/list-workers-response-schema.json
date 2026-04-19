@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-schema/list-workers-response-schema.json",
+  "title": "List Workers Response",
+  "description": "Response containing a list of workers.",
+  "type": "object",
+  "properties": {
+    "workers": {
+      "type": "array"
+    },
+    "nextToken": {
+      "type": "string"
+    }
+  }
+}

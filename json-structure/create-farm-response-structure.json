@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/create-farm-response-structure.json",
+  "title": "Create Farm Response",
+  "description": "Response after creating a farm.",
+  "type": "typedMap",
+  "fields": {
+    "farmId": {
+      "type": "str",
+      "description": "farmId"
+    }
+  }
+}

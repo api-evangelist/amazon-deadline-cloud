@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-schema/list-farms-response-schema.json",
+  "title": "List Farms Response",
+  "description": "Response containing a list of farms.",
+  "type": "object",
+  "properties": {
+    "farms": {
+      "type": "array"
+    },
+    "nextToken": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/list-queues-response-structure.json",
+  "title": "List Queues Response",
+  "description": "Response containing a list of queues.",
+  "type": "typedMap",
+  "fields": {
+    "queues": {
+      "type": "list",
+      "description": "queues"
+    },
+    "nextToken": {
+      "type": "str",
+      "description": "nextToken"
+    }
+  }
+}

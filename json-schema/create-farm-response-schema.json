@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-schema/create-farm-response-schema.json",
+  "title": "Create Farm Response",
+  "description": "Response after creating a farm.",
+  "type": "object",
+  "properties": {
+    "farmId": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-schema/update-job-request-schema.json",
+  "title": "Update Job Request",
+  "description": "Request body for updating a job.",
+  "type": "object",
+  "properties": {
+    "priority": {
+      "type": "integer"
+    },
+    "lifecycleStatus": {
+      "type": "string"
+    }
+  }
+}

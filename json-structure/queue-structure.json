@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/queue-structure.json",
+  "title": "Queue",
+  "description": "A job queue within a render farm that organizes and schedules rendering jobs.",
+  "type": "typedMap",
+  "fields": {
+    "queueId": {
+      "type": "str",
+      "description": "The unique identifier of the queue"
+    },
+    "farmId": {
+      "type": "str",
+      "description": "farmId"
+    },
+    "displayName": {
+      "type": "str",
+      "description": "displayName"
+    },
+    "status": {
+      "type": "str",
+      "description": "status"
+    },
+    "createdAt": {
+      "type": "str",
+      "description": "createdAt"
+    }
+  }
+}

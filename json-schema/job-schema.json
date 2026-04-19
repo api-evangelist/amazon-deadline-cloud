@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-schema/job-schema.json",
+  "title": "Job",
+  "description": "A rendering job submitted to a queue in Amazon Deadline Cloud.",
+  "type": "object",
+  "properties": {
+    "jobId": {
+      "type": "string",
+      "description": "The unique identifier of the job"
+    },
+    "queueId": {
+      "type": "string"
+    },
+    "farmId": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "lifecycleStatus": {
+      "type": "string"
+    },
+    "taskRunStatus": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

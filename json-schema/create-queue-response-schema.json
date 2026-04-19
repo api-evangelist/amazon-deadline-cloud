@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-schema/create-queue-response-schema.json",
+  "title": "Create Queue Response",
+  "description": "Response after creating a queue.",
+  "type": "object",
+  "properties": {
+    "queueId": {
+      "type": "string"
+    }
+  }
+}

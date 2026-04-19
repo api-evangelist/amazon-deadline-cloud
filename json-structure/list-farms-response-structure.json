@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/list-farms-response-structure.json",
+  "title": "List Farms Response",
+  "description": "Response containing a list of farms.",
+  "type": "typedMap",
+  "fields": {
+    "farms": {
+      "type": "list",
+      "description": "farms"
+    },
+    "nextToken": {
+      "type": "str",
+      "description": "nextToken"
+    }
+  }
+}

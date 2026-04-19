@@ -1,0 +1,8 @@
+{
+  "workers": [
+    {
+      "workerId": "worker-001abc",
+      "status": "STARTED"
+    }
+  ]
+}

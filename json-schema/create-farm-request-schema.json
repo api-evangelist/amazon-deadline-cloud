@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-schema/create-farm-request-schema.json",
+  "title": "Create Farm Request",
+  "description": "Request body for creating a render farm.",
+  "type": "object",
+  "required": [
+    "displayName"
+  ],
+  "properties": {
+    "displayName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "kmsKeyArn": {
+      "type": "string"
+    }
+  }
+}

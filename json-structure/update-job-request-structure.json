@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/update-job-request-structure.json",
+  "title": "Update Job Request",
+  "description": "Request body for updating a job.",
+  "type": "typedMap",
+  "fields": {
+    "priority": {
+      "type": "int",
+      "description": "priority"
+    },
+    "lifecycleStatus": {
+      "type": "str",
+      "description": "lifecycleStatus"
+    }
+  }
+}

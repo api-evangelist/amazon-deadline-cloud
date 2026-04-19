@@ -1,0 +1,46 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aws": "https://aws.amazon.com/deadline-cloud/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Farm": {"@id": "aws:Farm"},
+    "Queue": {"@id": "aws:Queue"},
+    "Fleet": {"@id": "aws:Fleet"},
+    "Job": {"@id": "aws:RenderJob"},
+    "Worker": {"@id": "aws:Worker"},
+
+    "farmId": {"@id": "aws:farmId", "@type": "xsd:string"},
+    "queueId": {"@id": "aws:queueId", "@type": "xsd:string"},
+    "fleetId": {"@id": "aws:fleetId", "@type": "xsd:string"},
+    "jobId": {"@id": "aws:jobId", "@type": "xsd:string"},
+    "workerId": {"@id": "aws:workerId", "@type": "xsd:string"},
+    "displayName": {"@id": "schema:name", "@type": "xsd:string"},
+    "description": {"@id": "schema:description", "@type": "xsd:string"},
+    "status": {"@id": "aws:status", "@type": "xsd:string"},
+    "lifecycleStatus": {"@id": "aws:lifecycleStatus", "@type": "xsd:string"},
+    "taskRunStatus": {"@id": "aws:taskRunStatus", "@type": "xsd:string"},
+    "priority": {"@id": "aws:priority", "@type": "xsd:integer"},
+    "workerCount": {"@id": "aws:workerCount", "@type": "xsd:integer"},
+    "kmsKeyArn": {"@id": "aws:kmsKeyArn", "@type": "xsd:string"},
+    "roleArn": {"@id": "aws:roleArn", "@type": "xsd:string"},
+    "configuration": {"@id": "aws:configuration"},
+    "taskRunStatusCounts": {"@id": "aws:taskRunStatusCounts"},
+    "defaultBudgetAction": {"@id": "aws:defaultBudgetAction", "@type": "xsd:string"},
+    "jobAttachmentSettings": {"@id": "aws:jobAttachmentSettings"},
+
+    "farms": {"@id": "aws:farms", "@container": "@set"},
+    "queues": {"@id": "aws:queues", "@container": "@set"},
+    "fleets": {"@id": "aws:fleets", "@container": "@set"},
+    "jobs": {"@id": "aws:jobs", "@container": "@set"},
+    "workers": {"@id": "aws:workers", "@container": "@set"},
+    "nextToken": {"@id": "aws:nextToken", "@type": "xsd:string"},
+
+    "createdAt": {"@id": "schema:dateCreated", "@type": "xsd:dateTime"},
+    "updatedAt": {"@id": "schema:dateModified", "@type": "xsd:dateTime"},
+
+    "message": {"@id": "schema:description", "@type": "xsd:string"},
+    "code": {"@id": "aws:errorCode", "@type": "xsd:string"}
+  }
+}

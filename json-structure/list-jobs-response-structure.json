@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/list-jobs-response-structure.json",
+  "title": "List Jobs Response",
+  "description": "Response containing a list of jobs.",
+  "type": "typedMap",
+  "fields": {
+    "jobs": {
+      "type": "list",
+      "description": "jobs"
+    },
+    "nextToken": {
+      "type": "str",
+      "description": "nextToken"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/farm-structure.json",
+  "title": "Farm",
+  "description": "A render farm in Amazon Deadline Cloud that contains queues, fleets, and jobs.",
+  "type": "typedMap",
+  "fields": {
+    "farmId": {
+      "type": "str",
+      "description": "The unique identifier of the render farm"
+    },
+    "displayName": {
+      "type": "str",
+      "description": "displayName"
+    },
+    "description": {
+      "type": "str",
+      "description": "description"
+    },
+    "kmsKeyArn": {
+      "type": "str",
+      "description": "The ARN of the KMS key. This ARN uniquely identifies the key."
+    },
+    "createdAt": {
+      "type": "str",
+      "description": "createdAt"
+    }
+  }
+}

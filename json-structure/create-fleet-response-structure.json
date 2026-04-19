@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/create-fleet-response-structure.json",
+  "title": "Create Fleet Response",
+  "description": "Response after creating a fleet.",
+  "type": "typedMap",
+  "fields": {
+    "fleetId": {
+      "type": "str",
+      "description": "fleetId"
+    }
+  }
+}

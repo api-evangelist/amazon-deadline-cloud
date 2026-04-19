@@ -1,0 +1,10 @@
+{
+  "fleets": [
+    {
+      "fleetId": "fleet-001abc",
+      "displayName": "Spot Instance Fleet",
+      "status": "ACTIVE",
+      "workerCount": 50
+    }
+  ]
+}

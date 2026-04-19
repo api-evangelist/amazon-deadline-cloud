@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/fleet-structure.json",
+  "title": "Fleet",
+  "description": "A compute fleet in a render farm providing worker capacity for jobs.",
+  "type": "typedMap",
+  "fields": {
+    "fleetId": {
+      "type": "str",
+      "description": "The unique identifier of the fleet"
+    },
+    "farmId": {
+      "type": "str",
+      "description": "farmId"
+    },
+    "displayName": {
+      "type": "str",
+      "description": "displayName"
+    },
+    "status": {
+      "type": "str",
+      "description": "status"
+    },
+    "workerCount": {
+      "type": "int",
+      "description": "workerCount"
+    },
+    "roleArn": {
+      "type": "str",
+      "description": "The ARN of the IAM role for the fleet"
+    },
+    "createdAt": {
+      "type": "str",
+      "description": "createdAt"
+    }
+  }
+}

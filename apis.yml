@@ -16,7 +16,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-03-16'
+modified: '2026-04-19'
 specificationVersion: '0.19'
 apis:
   - aid: amazon-deadline-cloud:amazon-deadline-cloud-api
@@ -31,17 +31,35 @@ apis:
       - Cloud Computing
       - Media Production
       - Rendering
+      - Visual Effects
+      - Animation
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
       - type: OpenAPI
-        url: https://api.apis.guru/v2/specs/amazonaws.com/deadline/2023-10-12/openapi.yaml
-      - type: Getting Started
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/openapi/amazon-deadline-cloud-openapi.yml
+      - type: GettingStarted
         url: https://aws.amazon.com/deadline-cloud/getting-started/
       - type: Pricing
         url: https://aws.amazon.com/deadline-cloud/pricing/
       - type: FAQ
         url: https://aws.amazon.com/deadline-cloud/faqs/
+      - type: SpectralRules
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
+      - type: Vocabulary
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
+      - type: NaftikoCapability
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/capabilities/shared/deadline-cloud.yaml
+      - type: NaftikoCapability
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/capabilities/render-farm-operations.yaml
+      - type: JSONLD
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
 common:
   - type: Portal
     url: https://aws.amazon.com/deadline-cloud/
@@ -49,21 +67,21 @@ common:
     url: https://aws.amazon.com/deadline-cloud/
   - type: Documentation
     url: https://docs.aws.amazon.com/deadline-cloud/
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://aws.amazon.com/service-terms/
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://aws.amazon.com/privacy/
   - type: Support
     url: https://aws.amazon.com/premiumsupport/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/aws
   - type: Console
     url: https://console.aws.amazon.com/deadline-cloud/
-  - type: Sign Up
+  - type: SignUp
     url: https://portal.aws.amazon.com/billing/signup
   - type: Login
     url: https://signin.aws.amazon.com/
-  - type: Status
+  - type: StatusPage
     url: https://health.aws.amazon.com/health/status
   - type: Contact
     url: https://aws.amazon.com/contact-us/

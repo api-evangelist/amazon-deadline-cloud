@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-schema/list-fleets-response-schema.json",
+  "title": "List Fleets Response",
+  "description": "Response containing a list of fleets.",
+  "type": "object",
+  "properties": {
+    "fleets": {
+      "type": "array"
+    },
+    "nextToken": {
+      "type": "string"
+    }
+  }
+}

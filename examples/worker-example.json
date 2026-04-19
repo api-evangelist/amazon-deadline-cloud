@@ -1,0 +1,7 @@
+{
+  "workerId": "worker-001abc",
+  "fleetId": "fleet-001abc",
+  "farmId": "farm-0abc123",
+  "status": "STARTED",
+  "createdAt": "2024-04-15T08:00:00Z"
+}

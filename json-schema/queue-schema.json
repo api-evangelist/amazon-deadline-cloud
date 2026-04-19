@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-schema/queue-schema.json",
+  "title": "Queue",
+  "description": "A job queue within a render farm that organizes and schedules rendering jobs.",
+  "type": "object",
+  "properties": {
+    "queueId": {
+      "type": "string",
+      "description": "The unique identifier of the queue"
+    },
+    "farmId": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "SCHEDULING",
+        "SCHEDULING_BLOCKED"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

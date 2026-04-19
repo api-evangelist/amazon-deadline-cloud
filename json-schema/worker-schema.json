@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-schema/worker-schema.json",
+  "title": "Worker",
+  "description": "A compute worker instance in a Deadline Cloud fleet executing rendering tasks.",
+  "type": "object",
+  "properties": {
+    "workerId": {
+      "type": "string",
+      "description": "The unique identifier of the worker"
+    },
+    "fleetId": {
+      "type": "string"
+    },
+    "farmId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

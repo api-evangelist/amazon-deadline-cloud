@@ -1,0 +1,7 @@
+{
+  "fleetId": "fleet-001abc",
+  "farmId": "farm-0abc123",
+  "displayName": "Spot Instance Fleet",
+  "status": "ACTIVE",
+  "workerCount": 50
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/job-structure.json",
+  "title": "Job",
+  "description": "A rendering job submitted to a queue in Amazon Deadline Cloud.",
+  "type": "typedMap",
+  "fields": {
+    "jobId": {
+      "type": "str",
+      "description": "The unique identifier of the job"
+    },
+    "queueId": {
+      "type": "str",
+      "description": "queueId"
+    },
+    "farmId": {
+      "type": "str",
+      "description": "farmId"
+    },
+    "displayName": {
+      "type": "str",
+      "description": "displayName"
+    },
+    "lifecycleStatus": {
+      "type": "str",
+      "description": "lifecycleStatus"
+    },
+    "taskRunStatus": {
+      "type": "str",
+      "description": "taskRunStatus"
+    },
+    "priority": {
+      "type": "int",
+      "description": "priority"
+    },
+    "createdAt": {
+      "type": "str",
+      "description": "createdAt"
+    }
+  }
+}

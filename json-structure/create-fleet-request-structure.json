@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/create-fleet-request-structure.json",
+  "title": "Create Fleet Request",
+  "description": "Request body for creating a compute fleet.",
+  "type": "typedMap",
+  "fields": {
+    "displayName": {
+      "type": "str",
+      "description": "displayName"
+    },
+    "description": {
+      "type": "str",
+      "description": "description"
+    },
+    "roleArn": {
+      "type": "str",
+      "description": "roleArn"
+    },
+    "configuration": {
+      "type": "map",
+      "description": "configuration"
+    },
+    "minWorkerCount": {
+      "type": "int",
+      "description": "minWorkerCount"
+    },
+    "maxWorkerCount": {
+      "type": "int",
+      "description": "maxWorkerCount"
+    }
+  }
+}

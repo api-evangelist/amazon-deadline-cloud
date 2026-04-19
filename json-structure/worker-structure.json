@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://api-evangelist.github.io/amazon-deadline-cloud/json-structure/worker-structure.json",
+  "title": "Worker",
+  "description": "A compute worker instance in a Deadline Cloud fleet executing rendering tasks.",
+  "type": "typedMap",
+  "fields": {
+    "workerId": {
+      "type": "str",
+      "description": "The unique identifier of the worker"
+    },
+    "fleetId": {
+      "type": "str",
+      "description": "fleetId"
+    },
+    "farmId": {
+      "type": "str",
+      "description": "farmId"
+    },
+    "status": {
+      "type": "str",
+      "description": "status"
+    },
+    "createdAt": {
+      "type": "str",
+      "description": "createdAt"
+    }
+  }
+}

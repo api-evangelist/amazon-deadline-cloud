@@ -1,0 +1,123 @@
+id: https://api-evangelist.github.io/amazon-deadline-cloud/capabilities/shared/deadline-cloud.yaml
+name: Amazon Deadline Cloud API
+description: Naftiko shared capability definition for Amazon Deadline Cloud API, providing programmatic access to manage render farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads.
+version: 1.0.0-alpha1
+specificationVersion: 1.0.0-alpha1
+
+provider:
+  name: Amazon Web Services
+  url: https://aws.amazon.com
+
+tags:
+  - AWS
+  - Rendering
+  - Media Production
+  - Visual Effects
+  - Cloud Computing
+
+rest:
+  port: 8100
+  baseURL: https://deadline.amazonaws.com
+  auth:
+    type: aws-signature-v4
+    service: deadline
+  resources:
+    - name: Farms
+      description: Manage render farms
+      operations:
+        - operationId: listFarms
+          summary: List Farms
+          method: GET
+          path: /2023-10-12/farms
+        - operationId: createFarm
+          summary: Create Farm
+          method: POST
+          path: /2023-10-12/farms
+        - operationId: getFarm
+          summary: Get Farm
+          method: GET
+          path: /2023-10-12/farms/{farmId}
+        - operationId: updateFarm
+          summary: Update Farm
+          method: PATCH
+          path: /2023-10-12/farms/{farmId}
+        - operationId: deleteFarm
+          summary: Delete Farm
+          method: DELETE
+          path: /2023-10-12/farms/{farmId}
+    - name: Queues
+      description: Manage job queues within farms
+      operations:
+        - operationId: listQueues
+          summary: List Queues
+          method: GET
+          path: /2023-10-12/farms/{farmId}/queues
+        - operationId: createQueue
+          summary: Create Queue
+          method: POST
+          path: /2023-10-12/farms/{farmId}/queues
+        - operationId: getQueue
+          summary: Get Queue
+          method: GET
+          path: /2023-10-12/farms/{farmId}/queues/{queueId}
+    - name: Fleets
+      description: Manage compute fleets
+      operations:
+        - operationId: listFleets
+          summary: List Fleets
+          method: GET
+          path: /2023-10-12/farms/{farmId}/fleets
+        - operationId: createFleet
+          summary: Create Fleet
+          method: POST
+          path: /2023-10-12/farms/{farmId}/fleets
+    - name: Jobs
+      description: Manage rendering jobs
+      operations:
+        - operationId: listJobs
+          summary: List Jobs
+          method: GET
+          path: /2023-10-12/farms/{farmId}/queues/{queueId}/jobs
+        - operationId: getJob
+          summary: Get Job
+          method: GET
+          path: /2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}
+        - operationId: updateJob
+          summary: Update Job
+          method: PATCH
+          path: /2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}
+    - name: Workers
+      description: Monitor compute workers
+      operations:
+        - operationId: listWorkers
+          summary: List Workers
+          method: GET
+          path: /2023-10-12/farms/{farmId}/fleets/{fleetId}/workers
+
+mcp:
+  port: 9100
+  tools:
+    - name: create_farm
+      description: Create a new render farm
+      operationId: createFarm
+    - name: list_farms
+      description: List all render farms
+      operationId: listFarms
+    - name: create_queue
+      description: Create a job queue in a farm
+      operationId: createQueue
+    - name: create_fleet
+      description: Create a compute fleet for rendering
+      operationId: createFleet
+    - name: list_jobs
+      description: List rendering jobs in a queue
+      operationId: listJobs
+    - name: get_job
+      description: Get the status of a rendering job
+      operationId: getJob
+    - name: update_job
+      description: Update job priority or lifecycle status
+      operationId: updateJob
+    - name: list_workers
+      description: List workers in a fleet
+      operationId: listWorkers
