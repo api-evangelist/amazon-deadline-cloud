@@ -1,0 +1,271 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Deadline Cloud API — Queues
+  description: 'Amazon Deadline Cloud API — Queues. 5 operations. Lead operation: List Queues. Self-contained Naftiko capability
+    covering one Amazon Deadline Cloud business surface.'
+  tags:
+  - Amazon Deadline Cloud
+  - Queues
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_DEADLINE_CLOUD_API_KEY: AMAZON_DEADLINE_CLOUD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-deadline-cloud-queues
+    baseUri: https://deadline.amazonaws.com
+    description: Amazon Deadline Cloud API — Queues business capability. Self-contained, no shared references.
+    resources:
+    - name: 2023-10-12-farms-farmId-queues
+      path: /2023-10-12/farms/{farmId}/queues
+      operations:
+      - name: listqueues
+        method: GET
+        description: List Queues
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: farmId
+          in: path
+          type: string
+          required: true
+        - name: status
+          in: query
+          type: string
+        - name: maxResults
+          in: query
+          type: integer
+        - name: nextToken
+          in: query
+          type: string
+      - name: createqueue
+        method: POST
+        description: Create Queue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: farmId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: 2023-10-12-farms-farmId-queues-queueId
+      path: /2023-10-12/farms/{farmId}/queues/{queueId}
+      operations:
+      - name: getqueue
+        method: GET
+        description: Get Queue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: farmId
+          in: path
+          type: string
+          required: true
+        - name: queueId
+          in: path
+          type: string
+          required: true
+      - name: updatequeue
+        method: PATCH
+        description: Update Queue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: farmId
+          in: path
+          type: string
+          required: true
+        - name: queueId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletequeue
+        method: DELETE
+        description: Delete Queue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: farmId
+          in: path
+          type: string
+          required: true
+        - name: queueId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_DEADLINE_CLOUD_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-deadline-cloud-queues-rest
+    port: 8080
+    description: REST adapter for Amazon Deadline Cloud API — Queues. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/2023-10-12/farms/{farmid}/queues
+      name: 2023-10-12-farms-farmid-queues
+      description: REST surface for 2023-10-12-farms-farmId-queues.
+      operations:
+      - method: GET
+        name: listqueues
+        description: List Queues
+        call: amazon-deadline-cloud-queues.listqueues
+        with:
+          farmId: rest.farmId
+          status: rest.status
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createqueue
+        description: Create Queue
+        call: amazon-deadline-cloud-queues.createqueue
+        with:
+          farmId: rest.farmId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2023-10-12/farms/{farmid}/queues/{queueid}
+      name: 2023-10-12-farms-farmid-queues-queueid
+      description: REST surface for 2023-10-12-farms-farmId-queues-queueId.
+      operations:
+      - method: GET
+        name: getqueue
+        description: Get Queue
+        call: amazon-deadline-cloud-queues.getqueue
+        with:
+          farmId: rest.farmId
+          queueId: rest.queueId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatequeue
+        description: Update Queue
+        call: amazon-deadline-cloud-queues.updatequeue
+        with:
+          farmId: rest.farmId
+          queueId: rest.queueId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletequeue
+        description: Delete Queue
+        call: amazon-deadline-cloud-queues.deletequeue
+        with:
+          farmId: rest.farmId
+          queueId: rest.queueId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-deadline-cloud-queues-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Deadline Cloud API — Queues. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-queues
+      description: List Queues
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-deadline-cloud-queues.listqueues
+      with:
+        farmId: tools.farmId
+        status: tools.status
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-queue
+      description: Create Queue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-deadline-cloud-queues.createqueue
+      with:
+        farmId: tools.farmId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-queue
+      description: Get Queue
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-deadline-cloud-queues.getqueue
+      with:
+        farmId: tools.farmId
+        queueId: tools.queueId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-queue
+      description: Update Queue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-deadline-cloud-queues.updatequeue
+      with:
+        farmId: tools.farmId
+        queueId: tools.queueId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-queue
+      description: Delete Queue
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-deadline-cloud-queues.deletequeue
+      with:
+        farmId: tools.farmId
+        queueId: tools.queueId
+      outputParameters:
+      - type: object
+        mapping: $.

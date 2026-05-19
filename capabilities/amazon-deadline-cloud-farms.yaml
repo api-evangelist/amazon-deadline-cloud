@@ -1,0 +1,236 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Deadline Cloud API — Farms
+  description: 'Amazon Deadline Cloud API — Farms. 5 operations. Lead operation: List Farms. Self-contained Naftiko capability
+    covering one Amazon Deadline Cloud business surface.'
+  tags:
+  - Amazon Deadline Cloud
+  - Farms
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_DEADLINE_CLOUD_API_KEY: AMAZON_DEADLINE_CLOUD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-deadline-cloud-farms
+    baseUri: https://deadline.amazonaws.com
+    description: Amazon Deadline Cloud API — Farms business capability. Self-contained, no shared references.
+    resources:
+    - name: 2023-10-12-farms
+      path: /2023-10-12/farms
+      operations:
+      - name: listfarms
+        method: GET
+        description: List Farms
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: maxResults
+          in: query
+          type: integer
+        - name: nextToken
+          in: query
+          type: string
+      - name: createfarm
+        method: POST
+        description: Create Farm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: 2023-10-12-farms-farmId
+      path: /2023-10-12/farms/{farmId}
+      operations:
+      - name: getfarm
+        method: GET
+        description: Get Farm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: farmId
+          in: path
+          type: string
+          required: true
+      - name: updatefarm
+        method: PATCH
+        description: Update Farm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: farmId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletefarm
+        method: DELETE
+        description: Delete Farm
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: farmId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_DEADLINE_CLOUD_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-deadline-cloud-farms-rest
+    port: 8080
+    description: REST adapter for Amazon Deadline Cloud API — Farms. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/2023-10-12/farms
+      name: 2023-10-12-farms
+      description: REST surface for 2023-10-12-farms.
+      operations:
+      - method: GET
+        name: listfarms
+        description: List Farms
+        call: amazon-deadline-cloud-farms.listfarms
+        with:
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createfarm
+        description: Create Farm
+        call: amazon-deadline-cloud-farms.createfarm
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/2023-10-12/farms/{farmid}
+      name: 2023-10-12-farms-farmid
+      description: REST surface for 2023-10-12-farms-farmId.
+      operations:
+      - method: GET
+        name: getfarm
+        description: Get Farm
+        call: amazon-deadline-cloud-farms.getfarm
+        with:
+          farmId: rest.farmId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatefarm
+        description: Update Farm
+        call: amazon-deadline-cloud-farms.updatefarm
+        with:
+          farmId: rest.farmId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletefarm
+        description: Delete Farm
+        call: amazon-deadline-cloud-farms.deletefarm
+        with:
+          farmId: rest.farmId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-deadline-cloud-farms-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Deadline Cloud API — Farms. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-farms
+      description: List Farms
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-deadline-cloud-farms.listfarms
+      with:
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-farm
+      description: Create Farm
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-deadline-cloud-farms.createfarm
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-farm
+      description: Get Farm
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-deadline-cloud-farms.getfarm
+      with:
+        farmId: tools.farmId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-farm
+      description: Update Farm
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-deadline-cloud-farms.updatefarm
+      with:
+        farmId: tools.farmId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-farm
+      description: Delete Farm
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-deadline-cloud-farms.deletefarm
+      with:
+        farmId: tools.farmId
+      outputParameters:
+      - type: object
+        mapping: $.
