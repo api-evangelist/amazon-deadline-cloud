@@ -1,0 +1,453 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Deadline Cloud API",
+    "version": "Wed Oct 11 2023 20:00:00 GMT-0400 (Eastern Daylight Time)"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Farms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Farms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms",
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists all render farms in the account."
+        },
+        {
+          "info": {
+            "name": "Create Farm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new render farm in Amazon Deadline Cloud."
+        },
+        {
+          "info": {
+            "name": "Get Farm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the details of a render farm."
+        },
+        {
+          "info": {
+            "name": "Update Farm",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the details of a render farm."
+        },
+        {
+          "info": {
+            "name": "Delete Farm",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a render farm."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Queues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Queues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/queues",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists all queues in a render farm."
+        },
+        {
+          "info": {
+            "name": "Create Queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/queues",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a job queue within a render farm."
+        },
+        {
+          "info": {
+            "name": "Get Queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/queues/:queueId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queueId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the details of a job queue."
+        },
+        {
+          "info": {
+            "name": "Update Queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/queues/:queueId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the details of a job queue."
+        },
+        {
+          "info": {
+            "name": "Delete Queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/queues/:queueId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queueId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a job queue."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fleets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fleets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/fleets",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists all compute fleets in a render farm."
+        },
+        {
+          "info": {
+            "name": "Create Fleet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/fleets",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a compute fleet within a render farm."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/queues/:queueId/jobs",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queueId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists jobs in a queue."
+        },
+        {
+          "info": {
+            "name": "Get Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/queues/:queueId/jobs/:jobId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queueId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the details and current status of a rendering job."
+        },
+        {
+          "info": {
+            "name": "Update Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/queues/:queueId/jobs/:jobId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queueId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a job's priority or lifecycle status."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Workers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/fleets/:fleetId/workers",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fleetId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists workers in a compute fleet."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
