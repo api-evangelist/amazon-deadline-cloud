@@ -52,6 +52,14 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
 common:
+  - type: TrustCenter
+    url: security/amazon-deadline-cloud-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-deadline-cloud-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-deadline-cloud-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-deadline-cloud-authentication.yml
   - type: Portal
     url: https://aws.amazon.com/deadline-cloud/
   - type: Website
