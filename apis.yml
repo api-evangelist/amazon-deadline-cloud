@@ -52,6 +52,8 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-deadline-cloud-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-deadline-cloud-trust-center.yml
   - type: VulnerabilityDisclosure
