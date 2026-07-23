@@ -1,0 +1,302 @@
+openapi: 3.1.0
+info:
+  title: Amazon Deadline Cloud Farms Queues API
+  description: The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.
+  version: 2023-10-12
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+servers:
+- url: https://deadline.amazonaws.com
+  description: Amazon Deadline Cloud API
+security:
+- awsSignatureV4: []
+tags:
+- name: Queues
+  description: Operations for managing job queues within farms
+paths:
+  /2023-10-12/farms/{farmId}/queues:
+    get:
+      operationId: listQueues
+      summary: List Queues
+      description: Lists all queues in a render farm.
+      tags:
+      - Queues
+      parameters:
+      - name: farmId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - ACTIVE
+          - SCHEDULING
+          - SCHEDULING_BLOCKED
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of queues returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListQueuesResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    queues:
+                    - queueId: queue-001abc
+                      farmId: farm-0abc123
+                      displayName: Main Render Queue
+                      status: ACTIVE
+                      createdAt: '2024-01-20T10:00:00Z'
+    post:
+      operationId: createQueue
+      summary: Create Queue
+      description: Creates a job queue within a render farm.
+      tags:
+      - Queues
+      parameters:
+      - name: farmId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateQueueRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  displayName: Main Render Queue
+                  description: Primary queue for rendering tasks
+                  defaultBudgetAction: STOP_SCHEDULING_AND_COMPLETE_TASKS
+                  jobAttachmentSettings:
+                    s3BucketName: my-render-assets-bucket
+                    rootPrefix: render-jobs/
+      responses:
+        '200':
+          description: Queue created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateQueueResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    queueId: queue-001abc
+  /2023-10-12/farms/{farmId}/queues/{queueId}:
+    get:
+      operationId: getQueue
+      summary: Get Queue
+      description: Gets the details of a job queue.
+      tags:
+      - Queues
+      parameters:
+      - name: farmId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: queueId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Queue details returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Queue'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    queueId: queue-001abc
+                    farmId: farm-0abc123
+                    displayName: Main Render Queue
+                    status: ACTIVE
+                    createdAt: '2024-01-20T10:00:00Z'
+        '404':
+          description: Queue not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      operationId: updateQueue
+      summary: Update Queue
+      description: Updates the details of a job queue.
+      tags:
+      - Queues
+      parameters:
+      - name: farmId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: queueId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateQueueRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  displayName: Updated Main Render Queue
+      responses:
+        '200':
+          description: Queue updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateQueueResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value: {}
+    delete:
+      operationId: deleteQueue
+      summary: Delete Queue
+      description: Deletes a job queue.
+      tags:
+      - Queues
+      parameters:
+      - name: farmId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: queueId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Queue deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteQueueResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value: {}
+components:
+  schemas:
+    UpdateQueueRequest:
+      description: Request body for updating a queue.
+      type: object
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+    Queue:
+      description: A job queue within a render farm that organizes and schedules rendering jobs.
+      type: object
+      properties:
+        queueId:
+          type: string
+          description: The unique identifier of the queue
+        farmId:
+          type: string
+        displayName:
+          type: string
+          description: The display name of the queue
+        description:
+          type: string
+        status:
+          type: string
+          description: The current status of the queue
+          enum:
+          - ACTIVE
+          - SCHEDULING
+          - SCHEDULING_BLOCKED
+        defaultBudgetAction:
+          type: string
+          enum:
+          - NONE
+          - STOP_SCHEDULING_AND_COMPLETE_TASKS
+          - STOP_SCHEDULING_AND_CANCEL_TASKS
+        createdAt:
+          type: string
+          format: date-time
+    CreateQueueRequest:
+      description: Request body for creating a job queue.
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        defaultBudgetAction:
+          type: string
+        jobAttachmentSettings:
+          type: object
+    UpdateQueueResponse:
+      description: Response after updating a queue.
+      type: object
+    CreateQueueResponse:
+      description: Response after creating a queue.
+      type: object
+      properties:
+        queueId:
+          type: string
+    DeleteQueueResponse:
+      description: Response after deleting a queue.
+      type: object
+    ListQueuesResponse:
+      description: Response containing a list of queues.
+      type: object
+      properties:
+        queues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Queue'
+        nextToken:
+          type: string
+    Error:
+      description: Standard error response from the Deadline Cloud API.
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+        code:
+          type: string
+          description: An error code identifying the type of error
+  securitySchemes:
+    awsSignatureV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication

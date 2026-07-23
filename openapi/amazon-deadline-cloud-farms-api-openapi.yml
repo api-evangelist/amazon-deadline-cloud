@@ -1,0 +1,255 @@
+openapi: 3.1.0
+info:
+  title: Amazon Deadline Cloud Farms API
+  description: The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.
+  version: 2023-10-12
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+servers:
+- url: https://deadline.amazonaws.com
+  description: Amazon Deadline Cloud API
+security:
+- awsSignatureV4: []
+tags:
+- name: Farms
+  description: Operations for managing render farms
+paths:
+  /2023-10-12/farms:
+    get:
+      operationId: listFarms
+      summary: List Farms
+      description: Lists all render farms in the account.
+      tags:
+      - Farms
+      parameters:
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of farms returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFarmsResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    farms:
+                    - farmId: farm-0abc123
+                      displayName: VFX Production Farm
+                      description: Main render farm for VFX production
+                      createdAt: '2024-01-15T10:00:00Z'
+                      updatedAt: '2024-03-01T12:00:00Z'
+    post:
+      operationId: createFarm
+      summary: Create Farm
+      description: Creates a new render farm in Amazon Deadline Cloud.
+      tags:
+      - Farms
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFarmRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  displayName: VFX Production Farm
+                  description: Main render farm for VFX production
+                  kmsKeyArn: arn:aws:kms:us-east-1:123456789012:key/abc-123
+      responses:
+        '200':
+          description: Farm created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateFarmResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    farmId: farm-0abc123
+  /2023-10-12/farms/{farmId}:
+    get:
+      operationId: getFarm
+      summary: Get Farm
+      description: Gets the details of a render farm.
+      tags:
+      - Farms
+      parameters:
+      - name: farmId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Farm details returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Farm'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    farmId: farm-0abc123
+                    displayName: VFX Production Farm
+                    description: Main render farm for VFX production
+                    createdAt: '2024-01-15T10:00:00Z'
+        '404':
+          description: Farm not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      operationId: updateFarm
+      summary: Update Farm
+      description: Updates the details of a render farm.
+      tags:
+      - Farms
+      parameters:
+      - name: farmId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFarmRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  displayName: Updated VFX Production Farm
+                  description: Updated description for VFX production farm
+      responses:
+        '200':
+          description: Farm updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateFarmResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value: {}
+    delete:
+      operationId: deleteFarm
+      summary: Delete Farm
+      description: Deletes a render farm.
+      tags:
+      - Farms
+      parameters:
+      - name: farmId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Farm deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteFarmResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value: {}
+components:
+  schemas:
+    CreateFarmResponse:
+      description: Response after creating a farm.
+      type: object
+      properties:
+        farmId:
+          type: string
+    CreateFarmRequest:
+      description: Request body for creating a render farm.
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        kmsKeyArn:
+          type: string
+    ListFarmsResponse:
+      description: Response containing a list of farms.
+      type: object
+      properties:
+        farms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Farm'
+        nextToken:
+          type: string
+    UpdateFarmRequest:
+      description: Request body for updating a farm.
+      type: object
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+    Farm:
+      description: A render farm in Amazon Deadline Cloud that contains queues, fleets, and jobs.
+      type: object
+      properties:
+        farmId:
+          type: string
+          description: The unique identifier of the render farm
+        displayName:
+          type: string
+          description: The display name of the farm
+        description:
+          type: string
+          description: A description of the farm
+        kmsKeyArn:
+          type: string
+          description: The ARN of the KMS key used for farm encryption. This ARN uniquely identifies the key.
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    DeleteFarmResponse:
+      description: Response after deleting a farm.
+      type: object
+    UpdateFarmResponse:
+      description: Response after updating a farm.
+      type: object
+    Error:
+      description: Standard error response from the Deadline Cloud API.
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+        code:
+          type: string
+          description: An error code identifying the type of error
+  securitySchemes:
+    awsSignatureV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication

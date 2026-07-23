@@ -1,0 +1,97 @@
+openapi: 3.1.0
+info:
+  title: Amazon Deadline Cloud Farms Workers API
+  description: The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.
+  version: 2023-10-12
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+servers:
+- url: https://deadline.amazonaws.com
+  description: Amazon Deadline Cloud API
+security:
+- awsSignatureV4: []
+tags:
+- name: Workers
+  description: Operations for managing farm workers
+paths:
+  /2023-10-12/farms/{farmId}/fleets/{fleetId}/workers:
+    get:
+      operationId: listWorkers
+      summary: List Workers
+      description: Lists workers in a compute fleet.
+      tags:
+      - Workers
+      parameters:
+      - name: farmId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: fleetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: List of workers returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListWorkersResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    workers:
+                    - workerId: worker-001abc
+                      fleetId: fleet-001abc
+                      farmId: farm-0abc123
+                      status: STARTED
+                      createdAt: '2024-04-15T08:00:00Z'
+components:
+  schemas:
+    ListWorkersResponse:
+      description: Response containing a list of workers.
+      type: object
+      properties:
+        workers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Worker'
+        nextToken:
+          type: string
+    Worker:
+      description: A compute worker instance in a Deadline Cloud fleet executing rendering tasks.
+      type: object
+      properties:
+        workerId:
+          type: string
+          description: The unique identifier of the worker
+        fleetId:
+          type: string
+        farmId:
+          type: string
+        status:
+          type: string
+          enum:
+          - CREATED
+          - STARTED
+          - STOPPING
+          - STOPPED
+          - NOT_COMPATIBLE
+          - NOT_RESPONDING
+        createdAt:
+          type: string
+          format: date-time
+  securitySchemes:
+    awsSignatureV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication

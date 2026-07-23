@@ -1,0 +1,250 @@
+openapi: 3.1.0
+info:
+  title: Amazon Deadline Cloud Farms Jobs API
+  description: The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.
+  version: 2023-10-12
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+servers:
+- url: https://deadline.amazonaws.com
+  description: Amazon Deadline Cloud API
+security:
+- awsSignatureV4: []
+tags:
+- name: Jobs
+  description: Operations for managing rendering jobs
+paths:
+  /2023-10-12/farms/{farmId}/queues/{queueId}/jobs:
+    get:
+      operationId: listJobs
+      summary: List Jobs
+      description: Lists jobs in a queue.
+      tags:
+      - Jobs
+      parameters:
+      - name: farmId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: queueId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of jobs returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListJobsResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    jobs:
+                    - jobId: job-001abc
+                      queueId: queue-001abc
+                      displayName: Shot_101_Beauty_Render
+                      lifecycleStatus: ACTIVE
+                      taskRunStatus: RUNNING
+                      priority: 50
+                      createdAt: '2024-04-15T08:00:00Z'
+  /2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}:
+    get:
+      operationId: getJob
+      summary: Get Job
+      description: Gets the details and current status of a rendering job.
+      tags:
+      - Jobs
+      parameters:
+      - name: farmId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: queueId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Job details returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    jobId: job-001abc
+                    queueId: queue-001abc
+                    farmId: farm-0abc123
+                    displayName: Shot_101_Beauty_Render
+                    lifecycleStatus: ACTIVE
+                    taskRunStatus: RUNNING
+                    priority: 50
+                    taskRunStatusCounts:
+                      RUNNING: 10
+                      PENDING: 90
+                      SUCCEEDED: 0
+                    createdAt: '2024-04-15T08:00:00Z'
+        '404':
+          description: Job not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      operationId: updateJob
+      summary: Update Job
+      description: Updates a job's priority or lifecycle status.
+      tags:
+      - Jobs
+      parameters:
+      - name: farmId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: queueId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateJobRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  priority: 75
+                  lifecycleStatus: ARCHIVED
+      responses:
+        '200':
+          description: Job updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateJobResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value: {}
+components:
+  schemas:
+    Job:
+      description: A rendering job submitted to a queue in Amazon Deadline Cloud.
+      type: object
+      properties:
+        jobId:
+          type: string
+          description: The unique identifier of the job
+        queueId:
+          type: string
+        farmId:
+          type: string
+        displayName:
+          type: string
+          description: The display name of the job
+        lifecycleStatus:
+          type: string
+          enum:
+          - CREATE_IN_PROGRESS
+          - CREATE_FAILED
+          - CREATE_COMPLETE
+          - UPLOAD_IN_PROGRESS
+          - UPLOAD_FAILED
+          - UPDATE_IN_PROGRESS
+          - UPDATE_FAILED
+          - UPDATE_SUCCEEDED
+          - ACTIVE
+          - ARCHIVED
+        taskRunStatus:
+          type: string
+          enum:
+          - PENDING
+          - READY
+          - ASSIGNED
+          - SCHEDULED
+          - INTERRUPTING
+          - RUNNING
+          - SUSPENDED
+          - CANCELED
+          - FAILED
+          - SUCCEEDED
+          - NOT_COMPATIBLE
+        priority:
+          type: integer
+          description: Job priority from 0 to 100 (higher is more urgent)
+        taskRunStatusCounts:
+          type: object
+          description: Counts of tasks by status
+        createdAt:
+          type: string
+          format: date-time
+    UpdateJobResponse:
+      description: Response after updating a job.
+      type: object
+    UpdateJobRequest:
+      description: Request body for updating a job.
+      type: object
+      properties:
+        priority:
+          type: integer
+        lifecycleStatus:
+          type: string
+          enum:
+          - ARCHIVED
+    Error:
+      description: Standard error response from the Deadline Cloud API.
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+        code:
+          type: string
+          description: An error code identifying the type of error
+    ListJobsResponse:
+      description: Response containing a list of jobs.
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+        nextToken:
+          type: string
+  securitySchemes:
+    awsSignatureV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication
