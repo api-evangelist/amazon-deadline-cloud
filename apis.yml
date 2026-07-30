@@ -5,7 +5,20 @@ description: >-
   workloads in AWS. It supports popular rendering and simulation applications, providing tools to submit, track, and
   manage rendering jobs at scale without managing infrastructure.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-deadline-cloud.png
 tags:
   - AWS
   - Compute
@@ -17,41 +30,144 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: amazon-deadline-cloud:amazon-deadline-cloud-api
-    name: Amazon Deadline Cloud API
-    description: >-
-      The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for
-      cloud-based rendering and simulation workloads on AWS.
-    humanURL: https://aws.amazon.com/deadline-cloud/
-    baseURL: https://deadline.amazonaws.com
-    tags:
-      - Cloud Computing
-      - Media Production
-      - Rendering
-      - Visual Effects
-      - Animation
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/openapi/amazon-deadline-cloud-openapi.yml
-      - type: GettingStarted
-        url: https://aws.amazon.com/deadline-cloud/getting-started/
-      - type: Pricing
-        url: https://aws.amazon.com/deadline-cloud/pricing/
-      - type: FAQ
-        url: https://aws.amazon.com/deadline-cloud/faqs/
-      - type: SpectralRules
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
-      - type: Vocabulary
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
-      - type: JSONLD
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+- aid: amazon-deadline-cloud:amazon-deadline-cloud-farms-api
+  name: Amazon Deadline Cloud Farms API
+  description: Operations for managing render farms
+  humanURL: https://aws.amazon.com/deadline-cloud/
+  baseURL: https://deadline.amazonaws.com
+  tags:
+  - Farms
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-deadline-cloud-farms-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/deadline-cloud/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/deadline-cloud/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/deadline-cloud/faqs/
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+- aid: amazon-deadline-cloud:amazon-deadline-cloud-fleets-api
+  name: Amazon Deadline Cloud Fleets API
+  description: Operations for managing compute fleets
+  humanURL: https://aws.amazon.com/deadline-cloud/
+  baseURL: https://deadline.amazonaws.com
+  tags:
+  - Fleets
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-deadline-cloud-fleets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/deadline-cloud/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/deadline-cloud/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/deadline-cloud/faqs/
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+- aid: amazon-deadline-cloud:amazon-deadline-cloud-jobs-api
+  name: Amazon Deadline Cloud Jobs API
+  description: Operations for managing rendering jobs
+  humanURL: https://aws.amazon.com/deadline-cloud/
+  baseURL: https://deadline.amazonaws.com
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-deadline-cloud-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/deadline-cloud/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/deadline-cloud/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/deadline-cloud/faqs/
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+- aid: amazon-deadline-cloud:amazon-deadline-cloud-queues-api
+  name: Amazon Deadline Cloud Queues API
+  description: Operations for managing job queues within farms
+  humanURL: https://aws.amazon.com/deadline-cloud/
+  baseURL: https://deadline.amazonaws.com
+  tags:
+  - Queues
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-deadline-cloud-queues-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/deadline-cloud/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/deadline-cloud/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/deadline-cloud/faqs/
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+- aid: amazon-deadline-cloud:amazon-deadline-cloud-workers-api
+  name: Amazon Deadline Cloud Workers API
+  description: Operations for managing farm workers
+  humanURL: https://aws.amazon.com/deadline-cloud/
+  baseURL: https://deadline.amazonaws.com
+  tags:
+  - Workers
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-deadline-cloud-workers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/deadline-cloud/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/deadline-cloud/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/deadline-cloud/faqs/
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-deadline-cloud/overview
   - type: AgenticAccess
     url: agentic-access/amazon-deadline-cloud-agentic-access.yml
   - type: TrustCenter
