@@ -1,0 +1,612 @@
+{
+  "info": {
+    "_postman_id": "696db9fd-cdf4-4fd5-8ca7-19e536a5f836",
+    "name": "Amazon Deadline Cloud Farms API",
+    "description": "The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.\n\nContact Support:\n Name: AWS Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:33:25.000Z",
+    "updatedAt": "2026-07-28T00:33:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-696db9fd-cdf4-4fd5-8ca7-19e536a5f836"
+  },
+  "item": [
+    {
+      "name": "2023-10-12",
+      "item": [
+        {
+          "name": "farms",
+          "item": [
+            {
+              "name": "{farmId}",
+              "item": [
+                {
+                  "name": "Get Farm",
+                  "id": "7a1d7604-ee24-474c-ae76-528999d4c780",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2023-10-12/farms/:farmId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2023-10-12",
+                        "farms",
+                        ":farmId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9cf46481-af3a-4ef7-a868-a4c10aa2c64c",
+                          "key": "farmId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Gets the details of a render farm."
+                  },
+                  "response": [
+                    {
+                      "id": "ddf0e700-d5ab-459b-bd46-2e8faebb7583",
+                      "name": "Farm details returned successfully",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2023-10-12/farms/:farmId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2023-10-12",
+                            "farms",
+                            ":farmId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "farmId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"farmId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"kmsKeyArn\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T00:33:26.000Z",
+                      "updatedAt": "2026-07-28T00:33:26.000Z",
+                      "uid": "35240-ddf0e700-d5ab-459b-bd46-2e8faebb7583"
+                    },
+                    {
+                      "id": "1cee738d-4531-4d8d-953e-e80853f43221",
+                      "name": "Farm not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2023-10-12/farms/:farmId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2023-10-12",
+                            "farms",
+                            ":farmId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "farmId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T00:33:26.000Z",
+                      "updatedAt": "2026-07-28T00:33:26.000Z",
+                      "uid": "35240-1cee738d-4531-4d8d-953e-e80853f43221"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:33:26.000Z",
+                  "updatedAt": "2026-07-28T00:33:26.000Z",
+                  "uid": "35240-7a1d7604-ee24-474c-ae76-528999d4c780"
+                },
+                {
+                  "name": "Update Farm",
+                  "id": "f780600b-b222-4010-9555-d4e72f5dde3a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2023-10-12/farms/:farmId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2023-10-12",
+                        "farms",
+                        ":farmId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f64bdf50-2120-47ce-ba8b-9dff12bd6b35",
+                          "key": "farmId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Updates the details of a render farm."
+                  },
+                  "response": [
+                    {
+                      "id": "9120edf6-77e1-4e2f-b9ac-08edc04835fb",
+                      "name": "Farm updated successfully",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/2023-10-12/farms/:farmId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2023-10-12",
+                            "farms",
+                            ":farmId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "farmId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T00:33:26.000Z",
+                      "updatedAt": "2026-07-28T00:33:26.000Z",
+                      "uid": "35240-9120edf6-77e1-4e2f-b9ac-08edc04835fb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:33:26.000Z",
+                  "updatedAt": "2026-07-28T00:33:26.000Z",
+                  "uid": "35240-f780600b-b222-4010-9555-d4e72f5dde3a"
+                },
+                {
+                  "name": "Delete Farm",
+                  "id": "dbdd7e70-dbf0-4a73-8f08-6cb2a53fb2a0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2023-10-12/farms/:farmId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2023-10-12",
+                        "farms",
+                        ":farmId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1fa3498a-e8b1-461e-a712-e75dbbb3ee78",
+                          "key": "farmId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Deletes a render farm."
+                  },
+                  "response": [
+                    {
+                      "id": "7c2571ca-bae9-4641-8db7-1c5dc2bb0405",
+                      "name": "Farm deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2023-10-12/farms/:farmId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2023-10-12",
+                            "farms",
+                            ":farmId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "farmId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-07-28T00:33:26.000Z",
+                      "updatedAt": "2026-07-28T00:33:26.000Z",
+                      "uid": "35240-7c2571ca-bae9-4641-8db7-1c5dc2bb0405"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:33:26.000Z",
+                  "updatedAt": "2026-07-28T00:33:26.000Z",
+                  "uid": "35240-dbdd7e70-dbf0-4a73-8f08-6cb2a53fb2a0"
+                }
+              ],
+              "id": "80dc4b40-997c-4826-b196-03c05d700034",
+              "createdAt": "2026-07-28T00:33:26.000Z",
+              "updatedAt": "2026-07-28T00:33:26.000Z",
+              "uid": "35240-80dc4b40-997c-4826-b196-03c05d700034"
+            },
+            {
+              "name": "List Farms",
+              "id": "1f3feedf-99c2-49c7-a714-686a09c89df7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/2023-10-12/farms?maxResults=<integer>&nextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2023-10-12",
+                    "farms"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "nextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Lists all render farms in the account."
+              },
+              "response": [
+                {
+                  "id": "6e0f491e-f4f5-430c-8e96-6549879da796",
+                  "name": "List of farms returned successfully",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/2023-10-12/farms?maxResults=<integer>&nextToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2023-10-12",
+                        "farms"
+                      ],
+                      "query": [
+                        {
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "nextToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"farms\": [\n    {\n      \"farmId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"kmsKeyArn\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"farmId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"kmsKeyArn\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:33:26.000Z",
+                  "updatedAt": "2026-07-28T00:33:26.000Z",
+                  "uid": "35240-6e0f491e-f4f5-430c-8e96-6549879da796"
+                }
+              ],
+              "createdAt": "2026-07-28T00:33:26.000Z",
+              "updatedAt": "2026-07-28T00:33:26.000Z",
+              "uid": "35240-1f3feedf-99c2-49c7-a714-686a09c89df7"
+            },
+            {
+              "name": "Create Farm",
+              "id": "2d6ec72b-b853-470e-b74d-39073e83610b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"kmsKeyArn\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/2023-10-12/farms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "2023-10-12",
+                    "farms"
+                  ]
+                },
+                "description": "Creates a new render farm in Amazon Deadline Cloud."
+              },
+              "response": [
+                {
+                  "id": "96aa5cc7-a9b6-403e-abdc-9a9c1179f319",
+                  "name": "Farm created successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"kmsKeyArn\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/2023-10-12/farms",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "2023-10-12",
+                        "farms"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"farmId\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:33:26.000Z",
+                  "updatedAt": "2026-07-28T00:33:26.000Z",
+                  "uid": "35240-96aa5cc7-a9b6-403e-abdc-9a9c1179f319"
+                }
+              ],
+              "createdAt": "2026-07-28T00:33:26.000Z",
+              "updatedAt": "2026-07-28T00:33:26.000Z",
+              "uid": "35240-2d6ec72b-b853-470e-b74d-39073e83610b"
+            }
+          ],
+          "id": "b6860e3d-df07-48a7-8e2d-3c0249a19266",
+          "createdAt": "2026-07-28T00:33:26.000Z",
+          "updatedAt": "2026-07-28T00:33:26.000Z",
+          "uid": "35240-b6860e3d-df07-48a7-8e2d-3c0249a19266"
+        }
+      ],
+      "id": "da374c60-8d78-4773-ba49-7904c48d67d4",
+      "createdAt": "2026-07-28T00:33:26.000Z",
+      "updatedAt": "2026-07-28T00:33:26.000Z",
+      "uid": "35240-da374c60-8d78-4773-ba49-7904c48d67d4"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://deadline.amazonaws.com"
+    }
+  ]
+}

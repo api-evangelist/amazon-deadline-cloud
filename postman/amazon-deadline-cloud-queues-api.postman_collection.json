@@ -1,0 +1,716 @@
+{
+  "info": {
+    "_postman_id": "9dc675d6-5278-4595-abc0-7b2b0cbede83",
+    "name": "Amazon Deadline Cloud Farms Queues API",
+    "description": "The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.\n\nContact Support:\n Name: AWS Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:33:40.000Z",
+    "updatedAt": "2026-07-28T00:33:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9dc675d6-5278-4595-abc0-7b2b0cbede83"
+  },
+  "item": [
+    {
+      "name": "2023-10-12",
+      "item": [
+        {
+          "name": "farms",
+          "item": [
+            {
+              "name": "{farmId}",
+              "item": [
+                {
+                  "name": "queues",
+                  "item": [
+                    {
+                      "name": "{queueId}",
+                      "item": [
+                        {
+                          "name": "Get Queue",
+                          "id": "eb1c33f1-e2cd-4034-9449-e46cd6f3b97f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2023-10-12",
+                                "farms",
+                                ":farmId",
+                                "queues",
+                                ":queueId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "8accb344-db61-499e-93db-2cebdbd13c36",
+                                  "key": "farmId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "f8d09423-e58c-44a0-9640-561ade0bfab3",
+                                  "key": "queueId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Gets the details of a job queue."
+                          },
+                          "response": [
+                            {
+                              "id": "9245a1a8-b2df-49d5-acd4-c3e0f2f0523e",
+                              "name": "Queue details returned successfully",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2023-10-12",
+                                    "farms",
+                                    ":farmId",
+                                    "queues",
+                                    ":queueId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "farmId"
+                                    },
+                                    {
+                                      "key": "queueId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"queueId\": \"<string>\",\n  \"farmId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"status\": \"SCHEDULING_BLOCKED\",\n  \"defaultBudgetAction\": \"STOP_SCHEDULING_AND_CANCEL_TASKS\",\n  \"createdAt\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-07-28T00:33:41.000Z",
+                              "updatedAt": "2026-07-28T00:33:41.000Z",
+                              "uid": "35240-9245a1a8-b2df-49d5-acd4-c3e0f2f0523e"
+                            },
+                            {
+                              "id": "0d5d9e28-fa92-4e12-8720-9be1a5fc7369",
+                              "name": "Queue not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2023-10-12",
+                                    "farms",
+                                    ":farmId",
+                                    "queues",
+                                    ":queueId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "farmId"
+                                    },
+                                    {
+                                      "key": "queueId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T00:33:41.000Z",
+                              "updatedAt": "2026-07-28T00:33:41.000Z",
+                              "uid": "35240-0d5d9e28-fa92-4e12-8720-9be1a5fc7369"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:33:41.000Z",
+                          "updatedAt": "2026-07-28T00:33:41.000Z",
+                          "uid": "35240-eb1c33f1-e2cd-4034-9449-e46cd6f3b97f"
+                        },
+                        {
+                          "name": "Update Queue",
+                          "id": "8af1859c-1497-4d78-8ebe-c5bdf0d07196",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2023-10-12",
+                                "farms",
+                                ":farmId",
+                                "queues",
+                                ":queueId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "98debfdd-e3ec-444a-b2e2-d721531df1fc",
+                                  "key": "farmId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "41c13646-b985-4887-980c-9fb0aece5fa5",
+                                  "key": "queueId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Updates the details of a job queue."
+                          },
+                          "response": [
+                            {
+                              "id": "a9cf2675-4ab2-45f2-be64-89bfd63b2f65",
+                              "name": "Queue updated successfully",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2023-10-12",
+                                    "farms",
+                                    ":farmId",
+                                    "queues",
+                                    ":queueId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "farmId"
+                                    },
+                                    {
+                                      "key": "queueId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-07-28T00:33:41.000Z",
+                              "updatedAt": "2026-07-28T00:33:41.000Z",
+                              "uid": "35240-a9cf2675-4ab2-45f2-be64-89bfd63b2f65"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:33:41.000Z",
+                          "updatedAt": "2026-07-28T00:33:41.000Z",
+                          "uid": "35240-8af1859c-1497-4d78-8ebe-c5bdf0d07196"
+                        },
+                        {
+                          "name": "Delete Queue",
+                          "id": "81777c42-e4b2-454d-8412-af81b2e4611e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2023-10-12",
+                                "farms",
+                                ":farmId",
+                                "queues",
+                                ":queueId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fc94cd1b-0db0-4b46-b660-2ad7e5706ca7",
+                                  "key": "farmId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "b7126b88-c5bf-4dd4-b4ef-46a0569bd762",
+                                  "key": "queueId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Deletes a job queue."
+                          },
+                          "response": [
+                            {
+                              "id": "1fd2c971-29ba-4c01-9485-f3fc77f03e8f",
+                              "name": "Queue deleted successfully",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2023-10-12",
+                                    "farms",
+                                    ":farmId",
+                                    "queues",
+                                    ":queueId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "farmId"
+                                    },
+                                    {
+                                      "key": "queueId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-07-28T00:33:41.000Z",
+                              "updatedAt": "2026-07-28T00:33:41.000Z",
+                              "uid": "35240-1fd2c971-29ba-4c01-9485-f3fc77f03e8f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:33:41.000Z",
+                          "updatedAt": "2026-07-28T00:33:41.000Z",
+                          "uid": "35240-81777c42-e4b2-454d-8412-af81b2e4611e"
+                        }
+                      ],
+                      "id": "51f1ef40-9fe7-4f1c-a3ac-f6cd9cf0788f",
+                      "createdAt": "2026-07-28T00:33:41.000Z",
+                      "updatedAt": "2026-07-28T00:33:41.000Z",
+                      "uid": "35240-51f1ef40-9fe7-4f1c-a3ac-f6cd9cf0788f"
+                    },
+                    {
+                      "name": "List Queues",
+                      "id": "125e9921-cee2-4ccd-9f4d-a8f031adcf6f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues?status=SCHEDULING_BLOCKED&maxResults=<integer>&nextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2023-10-12",
+                            "farms",
+                            ":farmId",
+                            "queues"
+                          ],
+                          "query": [
+                            {
+                              "key": "status",
+                              "value": "SCHEDULING_BLOCKED"
+                            },
+                            {
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "nextToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "4304c752-55b0-4488-aa6b-9bb13ca603ba",
+                              "key": "farmId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Lists all queues in a render farm."
+                      },
+                      "response": [
+                        {
+                          "id": "8173585c-4570-49bd-a4ad-0d1c09f303d6",
+                          "name": "List of queues returned successfully",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues?status=SCHEDULING_BLOCKED&maxResults=<integer>&nextToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2023-10-12",
+                                "farms",
+                                ":farmId",
+                                "queues"
+                              ],
+                              "query": [
+                                {
+                                  "key": "status",
+                                  "value": "SCHEDULING_BLOCKED"
+                                },
+                                {
+                                  "key": "maxResults",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "nextToken",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "farmId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"queues\": [\n    {\n      \"queueId\": \"<string>\",\n      \"farmId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"status\": \"SCHEDULING\",\n      \"defaultBudgetAction\": \"NONE\",\n      \"createdAt\": \"<dateTime>\"\n    },\n    {\n      \"queueId\": \"<string>\",\n      \"farmId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"status\": \"SCHEDULING\",\n      \"defaultBudgetAction\": \"NONE\",\n      \"createdAt\": \"<dateTime>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:33:41.000Z",
+                          "updatedAt": "2026-07-28T00:33:41.000Z",
+                          "uid": "35240-8173585c-4570-49bd-a4ad-0d1c09f303d6"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:33:41.000Z",
+                      "updatedAt": "2026-07-28T00:33:41.000Z",
+                      "uid": "35240-125e9921-cee2-4ccd-9f4d-a8f031adcf6f"
+                    },
+                    {
+                      "name": "Create Queue",
+                      "id": "57894ca3-d710-457e-b854-5348579b9294",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"defaultBudgetAction\": \"<string>\",\n  \"jobAttachmentSettings\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "2023-10-12",
+                            "farms",
+                            ":farmId",
+                            "queues"
+                          ],
+                          "variable": [
+                            {
+                              "id": "bda203d4-95af-46c0-b974-adc023a61e59",
+                              "key": "farmId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Creates a job queue within a render farm."
+                      },
+                      "response": [
+                        {
+                          "id": "09038290-01d6-46ca-9b8c-949650045eb3",
+                          "name": "Queue created successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"defaultBudgetAction\": \"<string>\",\n  \"jobAttachmentSettings\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "2023-10-12",
+                                "farms",
+                                ":farmId",
+                                "queues"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "farmId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"queueId\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:33:41.000Z",
+                          "updatedAt": "2026-07-28T00:33:41.000Z",
+                          "uid": "35240-09038290-01d6-46ca-9b8c-949650045eb3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:33:41.000Z",
+                      "updatedAt": "2026-07-28T00:33:41.000Z",
+                      "uid": "35240-57894ca3-d710-457e-b854-5348579b9294"
+                    }
+                  ],
+                  "id": "6d0f116a-8c06-4298-8d6b-dc2b7d662890",
+                  "createdAt": "2026-07-28T00:33:41.000Z",
+                  "updatedAt": "2026-07-28T00:33:41.000Z",
+                  "uid": "35240-6d0f116a-8c06-4298-8d6b-dc2b7d662890"
+                }
+              ],
+              "id": "97bada4e-c332-4d10-afed-9d12c7f4416f",
+              "createdAt": "2026-07-28T00:33:41.000Z",
+              "updatedAt": "2026-07-28T00:33:41.000Z",
+              "uid": "35240-97bada4e-c332-4d10-afed-9d12c7f4416f"
+            }
+          ],
+          "id": "cb238b64-a5a8-42e4-8a91-7e9ff8238098",
+          "createdAt": "2026-07-28T00:33:41.000Z",
+          "updatedAt": "2026-07-28T00:33:41.000Z",
+          "uid": "35240-cb238b64-a5a8-42e4-8a91-7e9ff8238098"
+        }
+      ],
+      "id": "4a282e9d-4904-499b-844b-7c04ed7c7aea",
+      "createdAt": "2026-07-28T00:33:41.000Z",
+      "updatedAt": "2026-07-28T00:33:41.000Z",
+      "uid": "35240-4a282e9d-4904-499b-844b-7c04ed7c7aea"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://deadline.amazonaws.com"
+    }
+  ]
+}

@@ -1,0 +1,965 @@
+openapi: 3.1.0
+info:
+  title: Amazon Deadline Cloud API
+  description: The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.
+  version: 2023-10-12
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+
+servers:
+  - url: https://deadline.amazonaws.com
+    description: Amazon Deadline Cloud API
+
+tags:
+  - name: Farms
+    description: Operations for managing render farms
+  - name: Queues
+    description: Operations for managing job queues within farms
+  - name: Fleets
+    description: Operations for managing compute fleets
+  - name: Jobs
+    description: Operations for managing rendering jobs
+  - name: Workers
+    description: Operations for managing farm workers
+  - name: Storage Profiles
+    description: Operations for managing storage profiles
+
+security:
+  - awsSignatureV4: []
+
+paths:
+  /2023-10-12/farms:
+    get:
+      operationId: listFarms
+      summary: List Farms
+      description: Lists all render farms in the account.
+      tags:
+        - Farms
+      parameters:
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+        - name: nextToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of farms returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFarmsResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    farms:
+                      - farmId: farm-0abc123
+                        displayName: VFX Production Farm
+                        description: Main render farm for VFX production
+                        createdAt: '2024-01-15T10:00:00Z'
+                        updatedAt: '2024-03-01T12:00:00Z'
+    post:
+      operationId: createFarm
+      summary: Create Farm
+      description: Creates a new render farm in Amazon Deadline Cloud.
+      tags:
+        - Farms
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFarmRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  displayName: VFX Production Farm
+                  description: Main render farm for VFX production
+                  kmsKeyArn: arn:aws:kms:us-east-1:123456789012:key/abc-123
+      responses:
+        '200':
+          description: Farm created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateFarmResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    farmId: farm-0abc123
+
+  /2023-10-12/farms/{farmId}:
+    get:
+      operationId: getFarm
+      summary: Get Farm
+      description: Gets the details of a render farm.
+      tags:
+        - Farms
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Farm details returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Farm'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    farmId: farm-0abc123
+                    displayName: VFX Production Farm
+                    description: Main render farm for VFX production
+                    createdAt: '2024-01-15T10:00:00Z'
+        '404':
+          description: Farm not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      operationId: updateFarm
+      summary: Update Farm
+      description: Updates the details of a render farm.
+      tags:
+        - Farms
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFarmRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  displayName: Updated VFX Production Farm
+                  description: Updated description for VFX production farm
+      responses:
+        '200':
+          description: Farm updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateFarmResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value: {}
+    delete:
+      operationId: deleteFarm
+      summary: Delete Farm
+      description: Deletes a render farm.
+      tags:
+        - Farms
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Farm deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteFarmResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value: {}
+
+  /2023-10-12/farms/{farmId}/queues:
+    get:
+      operationId: listQueues
+      summary: List Queues
+      description: Lists all queues in a render farm.
+      tags:
+        - Queues
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [ACTIVE, SCHEDULING, SCHEDULING_BLOCKED]
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+        - name: nextToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of queues returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListQueuesResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    queues:
+                      - queueId: queue-001abc
+                        farmId: farm-0abc123
+                        displayName: Main Render Queue
+                        status: ACTIVE
+                        createdAt: '2024-01-20T10:00:00Z'
+    post:
+      operationId: createQueue
+      summary: Create Queue
+      description: Creates a job queue within a render farm.
+      tags:
+        - Queues
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateQueueRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  displayName: Main Render Queue
+                  description: Primary queue for rendering tasks
+                  defaultBudgetAction: STOP_SCHEDULING_AND_COMPLETE_TASKS
+                  jobAttachmentSettings:
+                    s3BucketName: my-render-assets-bucket
+                    rootPrefix: render-jobs/
+      responses:
+        '200':
+          description: Queue created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateQueueResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    queueId: queue-001abc
+
+  /2023-10-12/farms/{farmId}/queues/{queueId}:
+    get:
+      operationId: getQueue
+      summary: Get Queue
+      description: Gets the details of a job queue.
+      tags:
+        - Queues
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queueId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Queue details returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Queue'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    queueId: queue-001abc
+                    farmId: farm-0abc123
+                    displayName: Main Render Queue
+                    status: ACTIVE
+                    createdAt: '2024-01-20T10:00:00Z'
+        '404':
+          description: Queue not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      operationId: updateQueue
+      summary: Update Queue
+      description: Updates the details of a job queue.
+      tags:
+        - Queues
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queueId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateQueueRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  displayName: Updated Main Render Queue
+      responses:
+        '200':
+          description: Queue updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateQueueResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value: {}
+    delete:
+      operationId: deleteQueue
+      summary: Delete Queue
+      description: Deletes a job queue.
+      tags:
+        - Queues
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queueId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Queue deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteQueueResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value: {}
+
+  /2023-10-12/farms/{farmId}/fleets:
+    get:
+      operationId: listFleets
+      summary: List Fleets
+      description: Lists all compute fleets in a render farm.
+      tags:
+        - Fleets
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [ACTIVE, CREATE_IN_PROGRESS, UPDATE_IN_PROGRESS, DELETE_IN_PROGRESS, CREATE_FAILED, UPDATE_FAILED, DELETE_FAILED]
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of fleets returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFleetsResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    fleets:
+                      - fleetId: fleet-001abc
+                        farmId: farm-0abc123
+                        displayName: Spot Instance Fleet
+                        status: ACTIVE
+                        workerCount: 50
+                        createdAt: '2024-01-22T10:00:00Z'
+    post:
+      operationId: createFleet
+      summary: Create Fleet
+      description: Creates a compute fleet within a render farm.
+      tags:
+        - Fleets
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFleetRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  displayName: Spot Instance Fleet
+                  description: Cost-optimized spot instance fleet for rendering
+                  roleArn: arn:aws:iam::123456789012:role/DeadlineCloudFleetRole
+                  configuration:
+                    customerManaged:
+                      instanceCapabilities:
+                        vCpuCount:
+                          min: 16
+                        memoryMiB:
+                          min: 32768
+                        instanceMarketOptions:
+                          type: spot
+      responses:
+        '200':
+          description: Fleet created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateFleetResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    fleetId: fleet-001abc
+
+  /2023-10-12/farms/{farmId}/queues/{queueId}/jobs:
+    get:
+      operationId: listJobs
+      summary: List Jobs
+      description: Lists jobs in a queue.
+      tags:
+        - Jobs
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queueId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+        - name: nextToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of jobs returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListJobsResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    jobs:
+                      - jobId: job-001abc
+                        queueId: queue-001abc
+                        displayName: Shot_101_Beauty_Render
+                        lifecycleStatus: ACTIVE
+                        taskRunStatus: RUNNING
+                        priority: 50
+                        createdAt: '2024-04-15T08:00:00Z'
+
+  /2023-10-12/farms/{farmId}/queues/{queueId}/jobs/{jobId}:
+    get:
+      operationId: getJob
+      summary: Get Job
+      description: Gets the details and current status of a rendering job.
+      tags:
+        - Jobs
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queueId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Job details returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    jobId: job-001abc
+                    queueId: queue-001abc
+                    farmId: farm-0abc123
+                    displayName: Shot_101_Beauty_Render
+                    lifecycleStatus: ACTIVE
+                    taskRunStatus: RUNNING
+                    priority: 50
+                    taskRunStatusCounts:
+                      RUNNING: 10
+                      PENDING: 90
+                      SUCCEEDED: 0
+                    createdAt: '2024-04-15T08:00:00Z'
+        '404':
+          description: Job not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      operationId: updateJob
+      summary: Update Job
+      description: Updates a job's priority or lifecycle status.
+      tags:
+        - Jobs
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: queueId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateJobRequest'
+            examples:
+              default:
+                x-microcks-default: true
+                value:
+                  priority: 75
+                  lifecycleStatus: ARCHIVED
+      responses:
+        '200':
+          description: Job updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateJobResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value: {}
+
+  /2023-10-12/farms/{farmId}/fleets/{fleetId}/workers:
+    get:
+      operationId: listWorkers
+      summary: List Workers
+      description: Lists workers in a compute fleet.
+      tags:
+        - Workers
+      parameters:
+        - name: farmId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: fleetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of workers returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListWorkersResponse'
+              examples:
+                default:
+                  x-microcks-default: true
+                  value:
+                    workers:
+                      - workerId: worker-001abc
+                        fleetId: fleet-001abc
+                        farmId: farm-0abc123
+                        status: STARTED
+                        createdAt: '2024-04-15T08:00:00Z'
+
+components:
+  securitySchemes:
+    awsSignatureV4:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: AWS Signature Version 4 authentication
+
+  schemas:
+    Farm:
+      description: A render farm in Amazon Deadline Cloud that contains queues, fleets, and jobs.
+      type: object
+      properties:
+        farmId:
+          type: string
+          description: The unique identifier of the render farm
+        displayName:
+          type: string
+          description: The display name of the farm
+        description:
+          type: string
+          description: A description of the farm
+        kmsKeyArn:
+          type: string
+          description: The ARN of the KMS key used for farm encryption. This ARN uniquely identifies the key.
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    CreateFarmRequest:
+      description: Request body for creating a render farm.
+      type: object
+      required:
+        - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        kmsKeyArn:
+          type: string
+
+    CreateFarmResponse:
+      description: Response after creating a farm.
+      type: object
+      properties:
+        farmId:
+          type: string
+
+    UpdateFarmRequest:
+      description: Request body for updating a farm.
+      type: object
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+
+    UpdateFarmResponse:
+      description: Response after updating a farm.
+      type: object
+
+    DeleteFarmResponse:
+      description: Response after deleting a farm.
+      type: object
+
+    ListFarmsResponse:
+      description: Response containing a list of farms.
+      type: object
+      properties:
+        farms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Farm'
+        nextToken:
+          type: string
+
+    Queue:
+      description: A job queue within a render farm that organizes and schedules rendering jobs.
+      type: object
+      properties:
+        queueId:
+          type: string
+          description: The unique identifier of the queue
+        farmId:
+          type: string
+        displayName:
+          type: string
+          description: The display name of the queue
+        description:
+          type: string
+        status:
+          type: string
+          description: The current status of the queue
+          enum: [ACTIVE, SCHEDULING, SCHEDULING_BLOCKED]
+        defaultBudgetAction:
+          type: string
+          enum: [NONE, STOP_SCHEDULING_AND_COMPLETE_TASKS, STOP_SCHEDULING_AND_CANCEL_TASKS]
+        createdAt:
+          type: string
+          format: date-time
+
+    CreateQueueRequest:
+      description: Request body for creating a job queue.
+      type: object
+      required:
+        - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        defaultBudgetAction:
+          type: string
+        jobAttachmentSettings:
+          type: object
+
+    CreateQueueResponse:
+      description: Response after creating a queue.
+      type: object
+      properties:
+        queueId:
+          type: string
+
+    UpdateQueueRequest:
+      description: Request body for updating a queue.
+      type: object
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+
+    UpdateQueueResponse:
+      description: Response after updating a queue.
+      type: object
+
+    DeleteQueueResponse:
+      description: Response after deleting a queue.
+      type: object
+
+    ListQueuesResponse:
+      description: Response containing a list of queues.
+      type: object
+      properties:
+        queues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Queue'
+        nextToken:
+          type: string
+
+    Fleet:
+      description: A compute fleet in a render farm providing worker capacity for jobs.
+      type: object
+      properties:
+        fleetId:
+          type: string
+          description: The unique identifier of the fleet
+        farmId:
+          type: string
+        displayName:
+          type: string
+          description: The display name of the fleet
+        status:
+          type: string
+          enum: [ACTIVE, CREATE_IN_PROGRESS, UPDATE_IN_PROGRESS, DELETE_IN_PROGRESS, CREATE_FAILED, UPDATE_FAILED, DELETE_FAILED]
+        workerCount:
+          type: integer
+          description: The number of workers in the fleet
+        roleArn:
+          type: string
+          description: The ARN of the IAM role for the fleet. This ARN uniquely identifies the role.
+        createdAt:
+          type: string
+          format: date-time
+
+    CreateFleetRequest:
+      description: Request body for creating a compute fleet.
+      type: object
+      required:
+        - displayName
+        - roleArn
+        - configuration
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        roleArn:
+          type: string
+        configuration:
+          type: object
+        minWorkerCount:
+          type: integer
+        maxWorkerCount:
+          type: integer
+
+    CreateFleetResponse:
+      description: Response after creating a fleet.
+      type: object
+      properties:
+        fleetId:
+          type: string
+
+    ListFleetsResponse:
+      description: Response containing a list of fleets.
+      type: object
+      properties:
+        fleets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Fleet'
+        nextToken:
+          type: string
+
+    Job:
+      description: A rendering job submitted to a queue in Amazon Deadline Cloud.
+      type: object
+      properties:
+        jobId:
+          type: string
+          description: The unique identifier of the job
+        queueId:
+          type: string
+        farmId:
+          type: string
+        displayName:
+          type: string
+          description: The display name of the job
+        lifecycleStatus:
+          type: string
+          enum: [CREATE_IN_PROGRESS, CREATE_FAILED, CREATE_COMPLETE, UPLOAD_IN_PROGRESS, UPLOAD_FAILED, UPDATE_IN_PROGRESS, UPDATE_FAILED, UPDATE_SUCCEEDED, ACTIVE, ARCHIVED]
+        taskRunStatus:
+          type: string
+          enum: [PENDING, READY, ASSIGNED, SCHEDULED, INTERRUPTING, RUNNING, SUSPENDED, CANCELED, FAILED, SUCCEEDED, NOT_COMPATIBLE]
+        priority:
+          type: integer
+          description: Job priority from 0 to 100 (higher is more urgent)
+        taskRunStatusCounts:
+          type: object
+          description: Counts of tasks by status
+        createdAt:
+          type: string
+          format: date-time
+
+    UpdateJobRequest:
+      description: Request body for updating a job.
+      type: object
+      properties:
+        priority:
+          type: integer
+        lifecycleStatus:
+          type: string
+          enum: [ARCHIVED]
+
+    UpdateJobResponse:
+      description: Response after updating a job.
+      type: object
+
+    ListJobsResponse:
+      description: Response containing a list of jobs.
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+        nextToken:
+          type: string
+
+    Worker:
+      description: A compute worker instance in a Deadline Cloud fleet executing rendering tasks.
+      type: object
+      properties:
+        workerId:
+          type: string
+          description: The unique identifier of the worker
+        fleetId:
+          type: string
+        farmId:
+          type: string
+        status:
+          type: string
+          enum: [CREATED, STARTED, STOPPING, STOPPED, NOT_COMPATIBLE, NOT_RESPONDING]
+        createdAt:
+          type: string
+          format: date-time
+
+    ListWorkersResponse:
+      description: Response containing a list of workers.
+      type: object
+      properties:
+        workers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Worker'
+        nextToken:
+          type: string
+
+    Error:
+      description: Standard error response from the Deadline Cloud API.
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+        code:
+          type: string
+          description: An error code identifying the type of error

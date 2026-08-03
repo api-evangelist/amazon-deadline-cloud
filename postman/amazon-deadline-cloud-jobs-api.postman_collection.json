@@ -1,0 +1,547 @@
+{
+  "info": {
+    "_postman_id": "27c6773a-15f6-4255-8a89-2ac283f01588",
+    "name": "Amazon Deadline Cloud Farms Jobs API",
+    "description": "The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.\n\nContact Support:\n Name: AWS Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:33:27.000Z",
+    "updatedAt": "2026-07-28T00:33:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-27c6773a-15f6-4255-8a89-2ac283f01588"
+  },
+  "item": [
+    {
+      "name": "2023-10-12",
+      "item": [
+        {
+          "name": "farms",
+          "item": [
+            {
+              "name": "{farmId}",
+              "item": [
+                {
+                  "name": "queues",
+                  "item": [
+                    {
+                      "name": "{queueId}",
+                      "item": [
+                        {
+                          "name": "jobs",
+                          "item": [
+                            {
+                              "name": "{jobId}",
+                              "item": [
+                                {
+                                  "name": "Get Job",
+                                  "id": "919e28fe-4fe4-4577-ac6f-0c6bbfbad909",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId/jobs/:jobId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "2023-10-12",
+                                        "farms",
+                                        ":farmId",
+                                        "queues",
+                                        ":queueId",
+                                        "jobs",
+                                        ":jobId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "a97398a1-7c92-419c-9d98-d610e37536de",
+                                          "key": "farmId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "cc6313da-292d-4c12-adae-624b6ee6ab10",
+                                          "key": "queueId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "2b0463e7-581a-4225-ae2c-a0144a75b5a5",
+                                          "key": "jobId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Gets the details and current status of a rendering job."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "f6c72b43-1d22-4da8-b0db-906ab6d6e04c",
+                                      "name": "Job details returned successfully",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId/jobs/:jobId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "2023-10-12",
+                                            "farms",
+                                            ":farmId",
+                                            "queues",
+                                            ":queueId",
+                                            "jobs",
+                                            ":jobId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "farmId"
+                                            },
+                                            {
+                                              "key": "queueId"
+                                            },
+                                            {
+                                              "key": "jobId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"jobId\": \"<string>\",\n  \"queueId\": \"<string>\",\n  \"farmId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"lifecycleStatus\": \"ARCHIVED\",\n  \"taskRunStatus\": \"INTERRUPTING\",\n  \"priority\": \"<integer>\",\n  \"taskRunStatusCounts\": {},\n  \"createdAt\": \"<dateTime>\"\n}",
+                                      "createdAt": "2026-07-28T00:33:28.000Z",
+                                      "updatedAt": "2026-07-28T00:33:28.000Z",
+                                      "uid": "35240-f6c72b43-1d22-4da8-b0db-906ab6d6e04c"
+                                    },
+                                    {
+                                      "id": "fa566c3b-ec4e-48ad-8aca-a5e02ae2347a",
+                                      "name": "Job not found",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId/jobs/:jobId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "2023-10-12",
+                                            "farms",
+                                            ":farmId",
+                                            "queues",
+                                            ":queueId",
+                                            "jobs",
+                                            ":jobId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "farmId"
+                                            },
+                                            {
+                                              "key": "queueId"
+                                            },
+                                            {
+                                              "key": "jobId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"message\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T00:33:28.000Z",
+                                      "updatedAt": "2026-07-28T00:33:28.000Z",
+                                      "uid": "35240-fa566c3b-ec4e-48ad-8aca-a5e02ae2347a"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T00:33:28.000Z",
+                                  "updatedAt": "2026-07-28T00:33:28.000Z",
+                                  "uid": "35240-919e28fe-4fe4-4577-ac6f-0c6bbfbad909"
+                                },
+                                {
+                                  "name": "Update Job",
+                                  "id": "9efa1e0e-ab04-4515-80c6-4368fe7b05ae",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"priority\": \"<integer>\",\n  \"lifecycleStatus\": \"ARCHIVED\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId/jobs/:jobId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "2023-10-12",
+                                        "farms",
+                                        ":farmId",
+                                        "queues",
+                                        ":queueId",
+                                        "jobs",
+                                        ":jobId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "8f4ee95e-5aae-4cb4-809e-0d7313b72d58",
+                                          "key": "farmId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "4862a0b1-0bd5-46e3-842a-5b61d3fab6e2",
+                                          "key": "queueId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "b28b5eef-451a-44fd-997e-643b662e0dec",
+                                          "key": "jobId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Updates a job's priority or lifecycle status."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "b3b155c8-8f65-4466-8253-5cfc94e0f052",
+                                      "name": "Job updated successfully",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"priority\": \"<integer>\",\n  \"lifecycleStatus\": \"ARCHIVED\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId/jobs/:jobId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "2023-10-12",
+                                            "farms",
+                                            ":farmId",
+                                            "queues",
+                                            ":queueId",
+                                            "jobs",
+                                            ":jobId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "farmId"
+                                            },
+                                            {
+                                              "key": "queueId"
+                                            },
+                                            {
+                                              "key": "jobId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{}",
+                                      "createdAt": "2026-07-28T00:33:28.000Z",
+                                      "updatedAt": "2026-07-28T00:33:28.000Z",
+                                      "uid": "35240-b3b155c8-8f65-4466-8253-5cfc94e0f052"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T00:33:28.000Z",
+                                  "updatedAt": "2026-07-28T00:33:28.000Z",
+                                  "uid": "35240-9efa1e0e-ab04-4515-80c6-4368fe7b05ae"
+                                }
+                              ],
+                              "id": "b016946d-d9e1-4e47-826e-0cedc0372ff1",
+                              "createdAt": "2026-07-28T00:33:28.000Z",
+                              "updatedAt": "2026-07-28T00:33:28.000Z",
+                              "uid": "35240-b016946d-d9e1-4e47-826e-0cedc0372ff1"
+                            },
+                            {
+                              "name": "List Jobs",
+                              "id": "3199da83-8c5e-4c11-9e9a-61f5a979382d",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId/jobs?maxResults=<integer>&nextToken=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2023-10-12",
+                                    "farms",
+                                    ":farmId",
+                                    "queues",
+                                    ":queueId",
+                                    "jobs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "maxResults",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "nextToken",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "487efe5e-9faf-4107-9889-67f38ba15f07",
+                                      "key": "farmId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "0a5da10d-8bc9-409f-85e9-702b8abb7c28",
+                                      "key": "queueId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Lists jobs in a queue."
+                              },
+                              "response": [
+                                {
+                                  "id": "e4718a02-e4ae-489e-9ef6-caf0ca465391",
+                                  "name": "List of jobs returned successfully",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/queues/:queueId/jobs?maxResults=<integer>&nextToken=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "2023-10-12",
+                                        "farms",
+                                        ":farmId",
+                                        "queues",
+                                        ":queueId",
+                                        "jobs"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "maxResults",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "nextToken",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "farmId"
+                                        },
+                                        {
+                                          "key": "queueId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"jobs\": [\n    {\n      \"jobId\": \"<string>\",\n      \"queueId\": \"<string>\",\n      \"farmId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"lifecycleStatus\": \"UPDATE_IN_PROGRESS\",\n      \"taskRunStatus\": \"PENDING\",\n      \"priority\": \"<integer>\",\n      \"taskRunStatusCounts\": {},\n      \"createdAt\": \"<dateTime>\"\n    },\n    {\n      \"jobId\": \"<string>\",\n      \"queueId\": \"<string>\",\n      \"farmId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"lifecycleStatus\": \"UPDATE_IN_PROGRESS\",\n      \"taskRunStatus\": \"SCHEDULED\",\n      \"priority\": \"<integer>\",\n      \"taskRunStatusCounts\": {},\n      \"createdAt\": \"<dateTime>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T00:33:28.000Z",
+                                  "updatedAt": "2026-07-28T00:33:28.000Z",
+                                  "uid": "35240-e4718a02-e4ae-489e-9ef6-caf0ca465391"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T00:33:28.000Z",
+                              "updatedAt": "2026-07-28T00:33:28.000Z",
+                              "uid": "35240-3199da83-8c5e-4c11-9e9a-61f5a979382d"
+                            }
+                          ],
+                          "id": "08555aeb-6271-43aa-91c7-18aaebae1697",
+                          "createdAt": "2026-07-28T00:33:28.000Z",
+                          "updatedAt": "2026-07-28T00:33:28.000Z",
+                          "uid": "35240-08555aeb-6271-43aa-91c7-18aaebae1697"
+                        }
+                      ],
+                      "id": "dc772af2-72c6-4059-a114-97bba5581b3f",
+                      "createdAt": "2026-07-28T00:33:28.000Z",
+                      "updatedAt": "2026-07-28T00:33:28.000Z",
+                      "uid": "35240-dc772af2-72c6-4059-a114-97bba5581b3f"
+                    }
+                  ],
+                  "id": "c39d24da-8e13-4d35-9e54-37163875b18c",
+                  "createdAt": "2026-07-28T00:33:28.000Z",
+                  "updatedAt": "2026-07-28T00:33:28.000Z",
+                  "uid": "35240-c39d24da-8e13-4d35-9e54-37163875b18c"
+                }
+              ],
+              "id": "fc9861b4-f571-47b4-b7e7-339a07bebc5d",
+              "createdAt": "2026-07-28T00:33:28.000Z",
+              "updatedAt": "2026-07-28T00:33:28.000Z",
+              "uid": "35240-fc9861b4-f571-47b4-b7e7-339a07bebc5d"
+            }
+          ],
+          "id": "19b01337-83d4-4988-a368-c5fc59cfd97c",
+          "createdAt": "2026-07-28T00:33:28.000Z",
+          "updatedAt": "2026-07-28T00:33:28.000Z",
+          "uid": "35240-19b01337-83d4-4988-a368-c5fc59cfd97c"
+        }
+      ],
+      "id": "cff3d23e-763d-4670-857a-63cb3d6fd1f9",
+      "createdAt": "2026-07-28T00:33:28.000Z",
+      "updatedAt": "2026-07-28T00:33:28.000Z",
+      "uid": "35240-cff3d23e-763d-4670-857a-63cb3d6fd1f9"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://deadline.amazonaws.com"
+    }
+  ]
+}

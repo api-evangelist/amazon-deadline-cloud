@@ -1,0 +1,211 @@
+{
+  "info": {
+    "_postman_id": "aa039ded-7cf7-4c38-8051-d7dac4b4308e",
+    "name": "Amazon Deadline Cloud Farms Workers API",
+    "description": "The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.\n\nContact Support:\n Name: AWS Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:33:41.000Z",
+    "updatedAt": "2026-07-28T00:33:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-aa039ded-7cf7-4c38-8051-d7dac4b4308e"
+  },
+  "item": [
+    {
+      "name": "2023-10-12",
+      "item": [
+        {
+          "name": "farms",
+          "item": [
+            {
+              "name": "{farmId}",
+              "item": [
+                {
+                  "name": "fleets",
+                  "item": [
+                    {
+                      "name": "{fleetId}",
+                      "item": [
+                        {
+                          "name": "workers",
+                          "item": [
+                            {
+                              "name": "List Workers",
+                              "id": "76df8183-0edd-4b4c-a887-fb0248a79f87",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/fleets/:fleetId/workers?maxResults=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "2023-10-12",
+                                    "farms",
+                                    ":farmId",
+                                    "fleets",
+                                    ":fleetId",
+                                    "workers"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "maxResults",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "db176cdc-a11a-419a-914d-7f5792953b5b",
+                                      "key": "farmId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "01db578d-6f60-49a1-b37c-ee53f8a7ec2d",
+                                      "key": "fleetId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Lists workers in a compute fleet."
+                              },
+                              "response": [
+                                {
+                                  "id": "601d14e0-4426-4feb-8daa-86020f060652",
+                                  "name": "List of workers returned successfully",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/2023-10-12/farms/:farmId/fleets/:fleetId/workers?maxResults=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "2023-10-12",
+                                        "farms",
+                                        ":farmId",
+                                        "fleets",
+                                        ":fleetId",
+                                        "workers"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "maxResults",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "farmId"
+                                        },
+                                        {
+                                          "key": "fleetId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"workers\": [\n    {\n      \"workerId\": \"<string>\",\n      \"fleetId\": \"<string>\",\n      \"farmId\": \"<string>\",\n      \"status\": \"STOPPING\",\n      \"createdAt\": \"<dateTime>\"\n    },\n    {\n      \"workerId\": \"<string>\",\n      \"fleetId\": \"<string>\",\n      \"farmId\": \"<string>\",\n      \"status\": \"STOPPING\",\n      \"createdAt\": \"<dateTime>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T00:33:42.000Z",
+                                  "updatedAt": "2026-07-28T00:33:42.000Z",
+                                  "uid": "35240-601d14e0-4426-4feb-8daa-86020f060652"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T00:33:42.000Z",
+                              "updatedAt": "2026-07-28T00:33:42.000Z",
+                              "uid": "35240-76df8183-0edd-4b4c-a887-fb0248a79f87"
+                            }
+                          ],
+                          "id": "36fcdce3-7ffc-4879-8acb-74e7c03936e4",
+                          "createdAt": "2026-07-28T00:33:42.000Z",
+                          "updatedAt": "2026-07-28T00:33:42.000Z",
+                          "uid": "35240-36fcdce3-7ffc-4879-8acb-74e7c03936e4"
+                        }
+                      ],
+                      "id": "4c22dbda-0b48-43bd-b046-78809aa4befa",
+                      "createdAt": "2026-07-28T00:33:42.000Z",
+                      "updatedAt": "2026-07-28T00:33:42.000Z",
+                      "uid": "35240-4c22dbda-0b48-43bd-b046-78809aa4befa"
+                    }
+                  ],
+                  "id": "a669de91-b4ea-41d4-9b14-5464629867e8",
+                  "createdAt": "2026-07-28T00:33:42.000Z",
+                  "updatedAt": "2026-07-28T00:33:42.000Z",
+                  "uid": "35240-a669de91-b4ea-41d4-9b14-5464629867e8"
+                }
+              ],
+              "id": "ea201326-8465-46e2-a805-d02accd33eaf",
+              "createdAt": "2026-07-28T00:33:42.000Z",
+              "updatedAt": "2026-07-28T00:33:42.000Z",
+              "uid": "35240-ea201326-8465-46e2-a805-d02accd33eaf"
+            }
+          ],
+          "id": "0cff7b67-e768-4436-a8d5-f8212c150c1a",
+          "createdAt": "2026-07-28T00:33:42.000Z",
+          "updatedAt": "2026-07-28T00:33:42.000Z",
+          "uid": "35240-0cff7b67-e768-4436-a8d5-f8212c150c1a"
+        }
+      ],
+      "id": "d49221ed-2039-48c8-9c68-27d2f0b9266a",
+      "createdAt": "2026-07-28T00:33:42.000Z",
+      "updatedAt": "2026-07-28T00:33:42.000Z",
+      "uid": "35240-d49221ed-2039-48c8-9c68-27d2f0b9266a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://deadline.amazonaws.com"
+    }
+  ]
+}

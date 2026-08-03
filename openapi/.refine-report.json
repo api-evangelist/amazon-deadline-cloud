@@ -1,0 +1,22 @@
+{
+  "provider": "amazon-deadline-cloud",
+  "sources": [
+    "amazon-deadline-cloud-farms-api-openapi.yml",
+    "amazon-deadline-cloud-fleets-api-openapi.yml",
+    "amazon-deadline-cloud-jobs-api-openapi.yml",
+    "amazon-deadline-cloud-queues-api-openapi.yml",
+    "amazon-deadline-cloud-workers-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-deadline-cloud-farms-api-openapi.yml",
+    "amazon-deadline-cloud-fleets-api-openapi.yml",
+    "amazon-deadline-cloud-jobs-api-openapi.yml",
+    "amazon-deadline-cloud-queues-api-openapi.yml",
+    "amazon-deadline-cloud-workers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
