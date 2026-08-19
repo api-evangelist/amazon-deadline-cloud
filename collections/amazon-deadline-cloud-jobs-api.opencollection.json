@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Deadline Cloud Farms Jobs API",
+    "version": "2023-10-12"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/queues/:queueId/jobs",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queueId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists jobs in a queue."
+        },
+        {
+          "info": {
+            "name": "Get Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/queues/:queueId/jobs/:jobId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queueId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the details and current status of a rendering job."
+        },
+        {
+          "info": {
+            "name": "Update Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/queues/:queueId/jobs/:jobId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "queueId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a job's priority or lifecycle status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

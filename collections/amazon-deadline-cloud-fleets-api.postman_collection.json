@@ -1,0 +1,290 @@
+{
+  "item": [
+    {
+      "id": "4fbfd47d-3a53-4e83-b8ef-8ccba7c60e20",
+      "name": "Fleets",
+      "description": {
+        "content": "Operations for managing compute fleets",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5aa970b3-d6af-47ee-bfe3-f375eb9908c4",
+          "name": "List Fleets",
+          "request": {
+            "name": "List Fleets",
+            "description": {
+              "content": "Lists all compute fleets in a render farm.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2023-10-12",
+                "farms",
+                ":farmId",
+                "fleets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "farmId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "040e0b99-866c-47ad-8142-433cf46616f6",
+              "name": "List of fleets returned successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2023-10-12",
+                    "farms",
+                    ":farmId",
+                    "fleets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "farmId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fleets\": [\n    {\n      \"fleetId\": \"fleet-001abc\",\n      \"farmId\": \"farm-0abc123\",\n      \"displayName\": \"Spot Instance Fleet\",\n      \"status\": \"ACTIVE\",\n      \"workerCount\": 50,\n      \"createdAt\": \"2024-01-22T10:00:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0c04db9-be60-4c1f-9ebd-b4910c12792d",
+          "name": "Create Fleet",
+          "request": {
+            "name": "Create Fleet",
+            "description": {
+              "content": "Creates a compute fleet within a render farm.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2023-10-12",
+                "farms",
+                ":farmId",
+                "fleets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "farmId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"roleArn\": \"<string>\",\n  \"configuration\": \"<object>\",\n  \"description\": \"<string>\",\n  \"minWorkerCount\": \"<integer>\",\n  \"maxWorkerCount\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "adeb9d90-6115-4740-8f37-3aceea65985b",
+              "name": "Fleet created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2023-10-12",
+                    "farms",
+                    ":farmId",
+                    "fleets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "farmId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"Spot Instance Fleet\",\n  \"description\": \"Cost-optimized spot instance fleet for rendering\",\n  \"roleArn\": \"arn:aws:iam::123456789012:role/DeadlineCloudFleetRole\",\n  \"configuration\": {\n    \"customerManaged\": {\n      \"instanceCapabilities\": {\n        \"vCpuCount\": {\n          \"min\": 16\n        },\n        \"memoryMiB\": {\n          \"min\": 32768\n        },\n        \"instanceMarketOptions\": {\n          \"type\": \"spot\"\n        }\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fleetId\": \"fleet-001abc\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://deadline.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5e5cc531-24a4-4bef-b74e-fc397c25fc4c",
+    "name": "Amazon Deadline Cloud Farms Fleets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.\n\nContact Support:\n Name: AWS Support",
+      "type": "text/plain"
+    }
+  }
+}

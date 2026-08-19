@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Deadline Cloud Farms API",
+    "version": "2023-10-12"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Farms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Farms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms",
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists all render farms in the account."
+        },
+        {
+          "info": {
+            "name": "Create Farm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new render farm in Amazon Deadline Cloud."
+        },
+        {
+          "info": {
+            "name": "Get Farm",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the details of a render farm."
+        },
+        {
+          "info": {
+            "name": "Update Farm",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the details of a render farm."
+        },
+        {
+          "info": {
+            "name": "Delete Farm",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a render farm."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

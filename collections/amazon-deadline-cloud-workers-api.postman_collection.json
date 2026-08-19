@@ -1,0 +1,178 @@
+{
+  "item": [
+    {
+      "id": "ad742156-64a8-4c33-bdeb-ac305ec04a8e",
+      "name": "Workers",
+      "description": {
+        "content": "Operations for managing farm workers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4f47613c-662e-4e87-bdbb-049914dfe20f",
+          "name": "List Workers",
+          "request": {
+            "name": "List Workers",
+            "description": {
+              "content": "Lists workers in a compute fleet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2023-10-12",
+                "farms",
+                ":farmId",
+                "fleets",
+                ":fleetId",
+                "workers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "farmId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fleetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47fbc636-5ea0-4a45-a953-a6a1fb270f6a",
+              "name": "List of workers returned successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2023-10-12",
+                    "farms",
+                    ":farmId",
+                    "fleets",
+                    ":fleetId",
+                    "workers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "farmId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fleetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workers\": [\n    {\n      \"workerId\": \"worker-001abc\",\n      \"fleetId\": \"fleet-001abc\",\n      \"farmId\": \"farm-0abc123\",\n      \"status\": \"STARTED\",\n      \"createdAt\": \"2024-04-15T08:00:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://deadline.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "249b9d7f-a861-4034-820d-4124a69285dd",
+    "name": "Amazon Deadline Cloud Farms Workers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.\n\nContact Support:\n Name: AWS Support",
+      "type": "text/plain"
+    }
+  }
+}

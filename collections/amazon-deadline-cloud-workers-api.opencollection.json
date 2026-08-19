@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Deadline Cloud Farms Workers API",
+    "version": "2023-10-12"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Workers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://deadline.amazonaws.com/2023-10-12/farms/:farmId/fleets/:fleetId/workers",
+            "params": [
+              {
+                "name": "farmId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fleetId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists workers in a compute fleet."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
