@@ -90,6 +90,8 @@ apis:
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
