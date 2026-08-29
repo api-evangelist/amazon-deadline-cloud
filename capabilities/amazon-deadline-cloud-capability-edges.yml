@@ -1,0 +1,26 @@
+slug: amazon-deadline-cloud
+provider: Amazon Deadline Cloud
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Fleets
+  spec_file: amazon-deadline-cloud-fleets-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: Create Fleet ... manage farms, queues, fleets, jobs, and workers for cloud-based rendering
+    and simulation workloads on AWS
+  reason: Fleets here are pools of compute workers provisioned for render workloads — cloud compute infrastructure
+    management, not a media business capability. Mapped to IT Infrastructure Management; could arguably
+    be abstained but the operations plainly provision compute capacity.

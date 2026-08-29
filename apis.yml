@@ -180,6 +180,9 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/amazon-deadline-cloud-capability-edges.yml
+    name: Amazon Deadline Cloud Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-deadline-cloud/overview
   - type: AgenticAccess
