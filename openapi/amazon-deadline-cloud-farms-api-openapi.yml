@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon Deadline Cloud Farms API
   description: The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.
@@ -173,34 +173,9 @@ paths:
                   value: {}
 components:
   schemas:
-    CreateFarmResponse:
-      description: Response after creating a farm.
+    DeleteFarmResponse:
+      description: Response after deleting a farm.
       type: object
-      properties:
-        farmId:
-          type: string
-    CreateFarmRequest:
-      description: Request body for creating a render farm.
-      type: object
-      required:
-      - displayName
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-        kmsKeyArn:
-          type: string
-    ListFarmsResponse:
-      description: Response containing a list of farms.
-      type: object
-      properties:
-        farms:
-          type: array
-          items:
-            $ref: '#/components/schemas/Farm'
-        nextToken:
-          type: string
     UpdateFarmRequest:
       description: Request body for updating a farm.
       type: object
@@ -209,6 +184,19 @@ components:
           type: string
         description:
           type: string
+    UpdateFarmResponse:
+      description: Response after updating a farm.
+      type: object
+    Error:
+      description: Standard error response from the Deadline Cloud API.
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+        code:
+          type: string
+          description: An error code identifying the type of error
     Farm:
       description: A render farm in Amazon Deadline Cloud that contains queues, fleets, and jobs.
       type: object
@@ -231,22 +219,34 @@ components:
         updatedAt:
           type: string
           format: date-time
-    DeleteFarmResponse:
-      description: Response after deleting a farm.
+    CreateFarmRequest:
+      description: Request body for creating a render farm.
       type: object
-    UpdateFarmResponse:
-      description: Response after updating a farm.
-      type: object
-    Error:
-      description: Standard error response from the Deadline Cloud API.
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        kmsKeyArn:
+          type: string
+    CreateFarmResponse:
+      description: Response after creating a farm.
       type: object
       properties:
-        message:
+        farmId:
           type: string
-          description: A human-readable error message
-        code:
+    ListFarmsResponse:
+      description: Response containing a list of farms.
+      type: object
+      properties:
+        farms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Farm'
+        nextToken:
           type: string
-          description: An error code identifying the type of error
   securitySchemes:
     awsSignatureV4:
       type: apiKey

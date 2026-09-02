@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon Deadline Cloud Farms Fleets API
   description: The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.
@@ -110,12 +110,6 @@ paths:
                     fleetId: fleet-001abc
 components:
   schemas:
-    CreateFleetResponse:
-      description: Response after creating a fleet.
-      type: object
-      properties:
-        fleetId:
-          type: string
     Fleet:
       description: A compute fleet in a render farm providing worker capacity for jobs.
       type: object
@@ -176,6 +170,12 @@ components:
           items:
             $ref: '#/components/schemas/Fleet'
         nextToken:
+          type: string
+    CreateFleetResponse:
+      description: Response after creating a fleet.
+      type: object
+      properties:
+        fleetId:
           type: string
   securitySchemes:
     awsSignatureV4:
