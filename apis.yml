@@ -76,6 +76,8 @@ apis:
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
+  - Fleet
+  tags_raw:
   - Fleets
   properties:
   - type: OpenAPI
