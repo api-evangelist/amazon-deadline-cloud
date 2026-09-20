@@ -10,6 +10,13 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: developer-api
 pricing_basis: usage-other
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-09-20'
+  evidence: Deadline Cloud can also process jobs on a fleet you have configured using your own compute,
+    either in your AWS account or on premises.
+  managed_tier: Service-Managed Fleets
 published: true
 note: 'Main rate tables render via dynamic price tokens that did not resolve in the captured text (e.g.
   ''{priceOf!...} per hour'', per-GB VPC endpoint and EBS gp3 rates). Only the worked pricing examples
