@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon Deadline Cloud Farms Workers API
+  title: Amazon Deadline Cloud Workers API
   description: The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.
   version: 2023-10-12
   contact:
@@ -56,16 +56,6 @@ paths:
                       createdAt: '2024-04-15T08:00:00Z'
 components:
   schemas:
-    ListWorkersResponse:
-      description: Response containing a list of workers.
-      type: object
-      properties:
-        workers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Worker'
-        nextToken:
-          type: string
     Worker:
       description: A compute worker instance in a Deadline Cloud fleet executing rendering tasks.
       type: object
@@ -89,6 +79,16 @@ components:
         createdAt:
           type: string
           format: date-time
+    ListWorkersResponse:
+      description: Response containing a list of workers.
+      type: object
+      properties:
+        workers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Worker'
+        nextToken:
+          type: string
   securitySchemes:
     awsSignatureV4:
       type: apiKey

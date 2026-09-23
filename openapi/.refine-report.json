@@ -1,11 +1,7 @@
 {
   "provider": "amazon-deadline-cloud",
   "sources": [
-    "amazon-deadline-cloud-farms-api-openapi.yml",
-    "amazon-deadline-cloud-fleets-api-openapi.yml",
-    "amazon-deadline-cloud-jobs-api-openapi.yml",
-    "amazon-deadline-cloud-queues-api-openapi.yml",
-    "amazon-deadline-cloud-workers-api-openapi.yml"
+    "_original/amazon-deadline-cloud-openapi.yml"
   ],
   "outputs": [
     "amazon-deadline-cloud-farms-api-openapi.yml",
@@ -18,7 +14,15 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-deadline-cloud-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-deadline-cloud-farms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-deadline-cloud-fleets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-deadline-cloud-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-deadline-cloud-queues-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-deadline-cloud-workers-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

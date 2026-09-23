@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon Deadline Cloud Farms Jobs API
+  title: Amazon Deadline Cloud Jobs API
   description: The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.
   version: 2023-10-12
   contact:
@@ -219,9 +219,6 @@ components:
         createdAt:
           type: string
           format: date-time
-    UpdateJobResponse:
-      description: Response after updating a job.
-      type: object
     ListJobsResponse:
       description: Response containing a list of jobs.
       type: object
@@ -242,6 +239,9 @@ components:
           type: string
           enum:
           - ARCHIVED
+    UpdateJobResponse:
+      description: Response after updating a job.
+      type: object
   securitySchemes:
     awsSignatureV4:
       type: apiKey

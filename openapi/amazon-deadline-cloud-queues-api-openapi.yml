@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon Deadline Cloud Farms Queues API
+  title: Amazon Deadline Cloud Queues API
   description: The Amazon Deadline Cloud API provides programmatic access to manage farms, queues, fleets, jobs, and workers for cloud-based rendering and simulation workloads on AWS.
   version: 2023-10-12
   contact:
@@ -210,16 +210,27 @@ paths:
                   value: {}
 components:
   schemas:
-    ListQueuesResponse:
-      description: Response containing a list of queues.
+    Error:
+      description: Standard error response from the Deadline Cloud API.
       type: object
       properties:
-        queues:
-          type: array
-          items:
-            $ref: '#/components/schemas/Queue'
-        nextToken:
+        message:
           type: string
+          description: A human-readable error message
+        code:
+          type: string
+          description: An error code identifying the type of error
+    UpdateQueueRequest:
+      description: Request body for updating a queue.
+      type: object
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+    DeleteQueueResponse:
+      description: Response after deleting a queue.
+      type: object
     CreateQueueRequest:
       description: Request body for creating a job queue.
       type: object
@@ -234,6 +245,12 @@ components:
           type: string
         jobAttachmentSettings:
           type: object
+    CreateQueueResponse:
+      description: Response after creating a queue.
+      type: object
+      properties:
+        queueId:
+          type: string
     Queue:
       description: A job queue within a render farm that organizes and schedules rendering jobs.
       type: object
@@ -264,36 +281,19 @@ components:
         createdAt:
           type: string
           format: date-time
-    Error:
-      description: Standard error response from the Deadline Cloud API.
-      type: object
-      properties:
-        message:
-          type: string
-          description: A human-readable error message
-        code:
-          type: string
-          description: An error code identifying the type of error
-    CreateQueueResponse:
-      description: Response after creating a queue.
-      type: object
-      properties:
-        queueId:
-          type: string
     UpdateQueueResponse:
       description: Response after updating a queue.
       type: object
-    UpdateQueueRequest:
-      description: Request body for updating a queue.
+    ListQueuesResponse:
+      description: Response containing a list of queues.
       type: object
       properties:
-        displayName:
+        queues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Queue'
+        nextToken:
           type: string
-        description:
-          type: string
-    DeleteQueueResponse:
-      description: Response after deleting a queue.
-      type: object
   securitySchemes:
     awsSignatureV4:
       type: apiKey
