@@ -220,36 +220,15 @@ components:
         code:
           type: string
           description: An error code identifying the type of error
-    UpdateQueueRequest:
-      description: Request body for updating a queue.
+    ListQueuesResponse:
+      description: Response containing a list of queues.
       type: object
       properties:
-        displayName:
-          type: string
-        description:
-          type: string
-    DeleteQueueResponse:
-      description: Response after deleting a queue.
-      type: object
-    CreateQueueRequest:
-      description: Request body for creating a job queue.
-      type: object
-      required:
-      - displayName
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-        defaultBudgetAction:
-          type: string
-        jobAttachmentSettings:
-          type: object
-    CreateQueueResponse:
-      description: Response after creating a queue.
-      type: object
-      properties:
-        queueId:
+        queues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Queue'
+        nextToken:
           type: string
     Queue:
       description: A job queue within a render farm that organizes and schedules rendering jobs.
@@ -281,19 +260,40 @@ components:
         createdAt:
           type: string
           format: date-time
+    CreateQueueRequest:
+      description: Request body for creating a job queue.
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        defaultBudgetAction:
+          type: string
+        jobAttachmentSettings:
+          type: object
+    DeleteQueueResponse:
+      description: Response after deleting a queue.
+      type: object
+    UpdateQueueRequest:
+      description: Request body for updating a queue.
+      type: object
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+    CreateQueueResponse:
+      description: Response after creating a queue.
+      type: object
+      properties:
+        queueId:
+          type: string
     UpdateQueueResponse:
       description: Response after updating a queue.
       type: object
-    ListQueuesResponse:
-      description: Response containing a list of queues.
-      type: object
-      properties:
-        queues:
-          type: array
-          items:
-            $ref: '#/components/schemas/Queue'
-        nextToken:
-          type: string
   securitySchemes:
     awsSignatureV4:
       type: apiKey
