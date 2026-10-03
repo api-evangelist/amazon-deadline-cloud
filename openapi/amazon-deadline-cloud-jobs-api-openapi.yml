@@ -159,6 +159,19 @@ paths:
                   value: {}
 components:
   schemas:
+    ListJobsResponse:
+      description: Response containing a list of jobs.
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+        nextToken:
+          type: string
+    UpdateJobResponse:
+      description: Response after updating a job.
+      type: object
     UpdateJobRequest:
       description: Request body for updating a job.
       type: object
@@ -179,19 +192,6 @@ components:
         code:
           type: string
           description: An error code identifying the type of error
-    UpdateJobResponse:
-      description: Response after updating a job.
-      type: object
-    ListJobsResponse:
-      description: Response containing a list of jobs.
-      type: object
-      properties:
-        jobs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Job'
-        nextToken:
-          type: string
     Job:
       description: A rendering job submitted to a queue in Amazon Deadline Cloud.
       type: object

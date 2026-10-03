@@ -110,32 +110,6 @@ paths:
                     fleetId: fleet-001abc
 components:
   schemas:
-    CreateFleetRequest:
-      description: Request body for creating a compute fleet.
-      type: object
-      required:
-      - displayName
-      - roleArn
-      - configuration
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-        roleArn:
-          type: string
-        configuration:
-          type: object
-        minWorkerCount:
-          type: integer
-        maxWorkerCount:
-          type: integer
-    CreateFleetResponse:
-      description: Response after creating a fleet.
-      type: object
-      properties:
-        fleetId:
-          type: string
     ListFleetsResponse:
       description: Response containing a list of fleets.
       type: object
@@ -177,6 +151,32 @@ components:
         createdAt:
           type: string
           format: date-time
+    CreateFleetRequest:
+      description: Request body for creating a compute fleet.
+      type: object
+      required:
+      - displayName
+      - roleArn
+      - configuration
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        roleArn:
+          type: string
+        configuration:
+          type: object
+        minWorkerCount:
+          type: integer
+        maxWorkerCount:
+          type: integer
+    CreateFleetResponse:
+      description: Response after creating a fleet.
+      type: object
+      properties:
+        fleetId:
+          type: string
   securitySchemes:
     awsSignatureV4:
       type: apiKey
