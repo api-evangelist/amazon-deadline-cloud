@@ -173,38 +173,6 @@ paths:
                   value: {}
 components:
   schemas:
-    DeleteFarmResponse:
-      description: Response after deleting a farm.
-      type: object
-    CreateFarmRequest:
-      description: Request body for creating a render farm.
-      type: object
-      required:
-      - displayName
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-        kmsKeyArn:
-          type: string
-    UpdateFarmRequest:
-      description: Request body for updating a farm.
-      type: object
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-    UpdateFarmResponse:
-      description: Response after updating a farm.
-      type: object
-    CreateFarmResponse:
-      description: Response after creating a farm.
-      type: object
-      properties:
-        farmId:
-          type: string
     Farm:
       description: A render farm in Amazon Deadline Cloud that contains queues, fleets, and jobs.
       type: object
@@ -227,16 +195,17 @@ components:
         updatedAt:
           type: string
           format: date-time
-    ListFarmsResponse:
-      description: Response containing a list of farms.
+    UpdateFarmRequest:
+      description: Request body for updating a farm.
       type: object
       properties:
-        farms:
-          type: array
-          items:
-            $ref: '#/components/schemas/Farm'
-        nextToken:
+        displayName:
           type: string
+        description:
+          type: string
+    UpdateFarmResponse:
+      description: Response after updating a farm.
+      type: object
     Error:
       description: Standard error response from the Deadline Cloud API.
       type: object
@@ -247,6 +216,37 @@ components:
         code:
           type: string
           description: An error code identifying the type of error
+    ListFarmsResponse:
+      description: Response containing a list of farms.
+      type: object
+      properties:
+        farms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Farm'
+        nextToken:
+          type: string
+    CreateFarmRequest:
+      description: Request body for creating a render farm.
+      type: object
+      required:
+      - displayName
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+        kmsKeyArn:
+          type: string
+    CreateFarmResponse:
+      description: Response after creating a farm.
+      type: object
+      properties:
+        farmId:
+          type: string
+    DeleteFarmResponse:
+      description: Response after deleting a farm.
+      type: object
   securitySchemes:
     awsSignatureV4:
       type: apiKey

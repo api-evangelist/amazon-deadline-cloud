@@ -210,32 +210,6 @@ paths:
                   value: {}
 components:
   schemas:
-    CreateQueueRequest:
-      description: Request body for creating a job queue.
-      type: object
-      required:
-      - displayName
-      properties:
-        displayName:
-          type: string
-        description:
-          type: string
-        defaultBudgetAction:
-          type: string
-        jobAttachmentSettings:
-          type: object
-    CreateQueueResponse:
-      description: Response after creating a queue.
-      type: object
-      properties:
-        queueId:
-          type: string
-    UpdateQueueResponse:
-      description: Response after updating a queue.
-      type: object
-    DeleteQueueResponse:
-      description: Response after deleting a queue.
-      type: object
     Error:
       description: Standard error response from the Deadline Cloud API.
       type: object
@@ -246,6 +220,9 @@ components:
         code:
           type: string
           description: An error code identifying the type of error
+    DeleteQueueResponse:
+      description: Response after deleting a queue.
+      type: object
     Queue:
       description: A job queue within a render farm that organizes and schedules rendering jobs.
       type: object
@@ -276,6 +253,23 @@ components:
         createdAt:
           type: string
           format: date-time
+    UpdateQueueRequest:
+      description: Request body for updating a queue.
+      type: object
+      properties:
+        displayName:
+          type: string
+        description:
+          type: string
+    CreateQueueResponse:
+      description: Response after creating a queue.
+      type: object
+      properties:
+        queueId:
+          type: string
+    UpdateQueueResponse:
+      description: Response after updating a queue.
+      type: object
     ListQueuesResponse:
       description: Response containing a list of queues.
       type: object
@@ -286,14 +280,20 @@ components:
             $ref: '#/components/schemas/Queue'
         nextToken:
           type: string
-    UpdateQueueRequest:
-      description: Request body for updating a queue.
+    CreateQueueRequest:
+      description: Request body for creating a job queue.
       type: object
+      required:
+      - displayName
       properties:
         displayName:
           type: string
         description:
           type: string
+        defaultBudgetAction:
+          type: string
+        jobAttachmentSettings:
+          type: object
   securitySchemes:
     awsSignatureV4:
       type: apiKey

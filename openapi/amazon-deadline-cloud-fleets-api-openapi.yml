@@ -120,6 +120,12 @@ components:
             $ref: '#/components/schemas/Fleet'
         nextToken:
           type: string
+    CreateFleetResponse:
+      description: Response after creating a fleet.
+      type: object
+      properties:
+        fleetId:
+          type: string
     Fleet:
       description: A compute fleet in a render farm providing worker capacity for jobs.
       type: object
@@ -171,12 +177,6 @@ components:
           type: integer
         maxWorkerCount:
           type: integer
-    CreateFleetResponse:
-      description: Response after creating a fleet.
-      type: object
-      properties:
-        fleetId:
-          type: string
   securitySchemes:
     awsSignatureV4:
       type: apiKey
