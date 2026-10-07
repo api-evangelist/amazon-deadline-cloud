@@ -183,6 +183,8 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
 common:
+  - type: Pricing
+    url: https://aws.amazon.com/deadline-cloud/pricing/
   - type: Plans
     url: plans/amazon-deadline-cloud-plans-pricing.yml
   - type: CapabilityMap
