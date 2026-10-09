@@ -64,3 +64,59 @@ plans:
 rate_limit_statements:
 - 3,000 IOPS free
 - 125 MB/s free
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units:
+  - compute
+  plans:
+  - name: AWS Deadline Cloud UBL – Arnold (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Customer-Managed Fleet connected worker hour (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: c5.4xlarge Spot instance (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: r6i.4xlarge Spot instance (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: c5a.4xlarge Spot instance (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: m6id.8xlarge Spot instance (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
