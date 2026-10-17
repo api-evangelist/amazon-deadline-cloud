@@ -159,19 +159,6 @@ paths:
                   value: {}
 components:
   schemas:
-    UpdateJobResponse:
-      description: Response after updating a job.
-      type: object
-    Error:
-      description: Standard error response from the Deadline Cloud API.
-      type: object
-      properties:
-        message:
-          type: string
-          description: A human-readable error message
-        code:
-          type: string
-          description: An error code identifying the type of error
     UpdateJobRequest:
       description: Request body for updating a job.
       type: object
@@ -182,6 +169,29 @@ components:
           type: string
           enum:
           - ARCHIVED
+    Error:
+      description: Standard error response from the Deadline Cloud API.
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+        code:
+          type: string
+          description: An error code identifying the type of error
+    ListJobsResponse:
+      description: Response containing a list of jobs.
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Job'
+        nextToken:
+          type: string
+    UpdateJobResponse:
+      description: Response after updating a job.
+      type: object
     Job:
       description: A rendering job submitted to a queue in Amazon Deadline Cloud.
       type: object
@@ -232,16 +242,6 @@ components:
         createdAt:
           type: string
           format: date-time
-    ListJobsResponse:
-      description: Response containing a list of jobs.
-      type: object
-      properties:
-        jobs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Job'
-        nextToken:
-          type: string
   securitySchemes:
     awsSignatureV4:
       type: apiKey
