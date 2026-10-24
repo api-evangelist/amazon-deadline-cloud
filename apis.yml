@@ -76,7 +76,7 @@ apis:
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
-  - Fleet
+  - Fleet Management
   tags_raw:
   - Fleets
   properties:
