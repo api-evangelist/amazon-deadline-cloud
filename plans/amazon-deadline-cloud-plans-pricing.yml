@@ -1,0 +1,122 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://aws.amazon.com/deadline-cloud/pricing/
+sources:
+- https://aws.amazon.com/deadline-cloud/pricing/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-09-20'
+  evidence: Deadline Cloud can also process jobs on a fleet you have configured using your own compute,
+    either in your AWS account or on premises.
+  managed_tier: Service-Managed Fleets
+published: true
+note: 'Main rate tables render via dynamic price tokens that did not resolve in the captured text (e.g.
+  ''{priceOf!...} per hour'', per-GB VPC endpoint and EBS gp3 rates). Only the worked pricing examples
+  contain literal numbers; those are transcribed here. Charging is usage-based: instance-hours, connected
+  worker hours, GB-month storage, GB data processed, and tiered hourly usage-based licensing.'
+plan_count: 6
+currency: USD
+plans:
+- name: AWS Deadline Cloud UBL – Arnold (pricing example)
+  price_text: $0.66 per hour
+  price: 0.66
+  currency: USD
+  period: per-use
+  unit: hour
+- name: Customer-Managed Fleet connected worker hour (pricing example)
+  price_text: $0.015 per hour
+  price: 0.015
+  currency: USD
+  period: per-use
+  unit: connected worker hour
+- name: c5.4xlarge Spot instance (pricing example)
+  price_text: $0.1878 per hour
+  price: 0.1878
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: r6i.4xlarge Spot instance (pricing example)
+  price_text: $0.21864 per hour
+  price: 0.21864
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: c5a.4xlarge Spot instance (pricing example)
+  price_text: $0.1639 per hour
+  price: 0.1639
+  currency: USD
+  period: per-use
+  unit: instance-hour
+- name: m6id.8xlarge Spot instance (pricing example)
+  price_text: $0.4139 per hour
+  price: 0.4139
+  currency: USD
+  period: per-use
+  unit: instance-hour
+rate_limit_statements:
+- 3,000 IOPS free
+- 125 MB/s free
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units:
+  - compute
+  plans:
+  - name: AWS Deadline Cloud UBL – Arnold (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Customer-Managed Fleet connected worker hour (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: c5.4xlarge Spot instance (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: r6i.4xlarge Spot instance (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: c5a.4xlarge Spot instance (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: m6id.8xlarge Spot instance (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
