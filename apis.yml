@@ -1,9 +1,8 @@
 aid: amazon-deadline-cloud
 name: Amazon Deadline Cloud
-description: >-
-  Amazon Deadline Cloud is a fully managed render farm service that makes it easy to set up, deploy, and scale rendering
-  workloads in AWS. It supports popular rendering and simulation applications, providing tools to submit, track, and
-  manage rendering jobs at scale without managing infrastructure.
+description: Amazon Deadline Cloud is a fully managed render farm service that makes it easy to set up, deploy, and scale rendering workloads
+  in AWS. It supports popular rendering and simulation applications, providing tools to submit, track, and manage rendering jobs at scale without
+  managing infrastructure.
 type: Index
 deliveryModel:
   model: saas
@@ -29,25 +28,132 @@ accessModel:
   - plans
   - authentication
   - security
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-deadline-cloud.png
 tags:
-  - Amazon Web Services
-  - Compute
-  - Media
-  - Rendering
-  - Visual Effects
+- Amazon Web Services
+- Compute
+- Media
+- Rendering
+- Visual Effects
 tags_raw:
-  - AWS
-  - Compute
-  - Media
-  - Rendering
-  - Visual Effects
+- AWS
+- Compute
+- Media
+- Rendering
+- Visual Effects
 url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/apis.yml
 created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.23'
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+common:
+- type: GettingStarted
+  url: https://developer.amazon.com/frustration-free-setup
+- type: Spectral
+  url: rules/amazon-deadline-cloud-spectral-rules.yml
+- type: Spectral
+  url: rules/amazon-deadline-cloud-rules.yml
+- type: Spectral
+  url: rules/amazon-deadline-cloud-jsonschema-spectral-rules.yml
+- type: JSONLD
+  url: json-ld/amazon-deadline-cloud-context.jsonld
+- type: Vocabulary
+  url: vocabulary/amazon-deadline-cloud-vocabulary.yml
+- type: DataModel
+  url: data-model/amazon-deadline-cloud-data-model.yml
+- type: CLI
+  url: cli/amazon-deadline-cloud-cli.yml
+- type: Compliance
+  url: https://aws.amazon.com/compliance/
+- type: ErrorCatalog
+  url: errors/amazon-deadline-cloud-problem-types.yml
+- type: Conformance
+  url: conformance/amazon-deadline-cloud-conformance.yml
+- type: LLMsTxt
+  url: llms/amazon-deadline-cloud-llms.txt
+- type: ToolCrosswalk
+  url: mcp/amazon-deadline-cloud-tool-crosswalk.yml
+- type: MCPServer
+  url: mcp/amazon-deadline-cloud-mcp.yml
+- type: SecurityTxt
+  url: well-known/amazon-deadline-cloud-security.txt
+- type: WellKnown
+  url: well-known/amazon-deadline-cloud-well-known.yml
+- type: Hosts
+  url: hosts/amazon-deadline-cloud-hosts.yml
+- type: Vendors
+  url: vendors/amazon-deadline-cloud-vendors.yml
+- type: SDKs
+  url: packages/amazon-deadline-cloud-packages.yml
+- type: Packages
+  url: packages/amazon-deadline-cloud-packages.yml
+- type: Security
+  url: https://aws.amazon.com/security/?nc2=h_dsc_aa_sec
+- type: Sandbox
+  url: https://console.aws.amazon.com/console/home/?nc2=h_si&src=header-signin
+- type: Newsroom
+  url: https://aws.amazon.com/media/?nc2=h_sol_ind_med
+- type: RateLimits
+  url: rate-limits/amazon-deadline-cloud-rate-limits.yml
+- type: FinOps
+  url: finops/amazon-deadline-cloud-finops.yml
+- type: Pricing
+  url: https://aws.amazon.com/deadline-cloud/pricing/
+- type: Plans
+  url: plans/amazon-deadline-cloud-plans-pricing.yml
+- type: CapabilityMap
+  url: capabilities/amazon-deadline-cloud-capability-edges.yml
+  name: Amazon Deadline Cloud Business Capability Map
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-deadline-cloud/overview
+- type: AgenticAccess
+  url: agentic-access/amazon-deadline-cloud-agentic-access.yml
+- type: TrustCenter
+  url: security/amazon-deadline-cloud-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-deadline-cloud-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-deadline-cloud-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-deadline-cloud-authentication.yml
+- type: Portal
+  url: https://aws.amazon.com/deadline-cloud/
+- type: Website
+  url: https://aws.amazon.com/deadline-cloud/
+- type: Documentation
+  url: https://docs.aws.amazon.com/deadline-cloud/
+- type: TermsOfService
+  url: https://aws.amazon.com/service-terms/
+- type: PrivacyPolicy
+  url: https://aws.amazon.com/privacy/
+- type: Support
+  url: https://aws.amazon.com/premiumsupport/
+- type: GitHubOrganization
+  url: https://github.com/aws-deadline
+- type: Signup
+  url: https://portal.aws.amazon.com/billing/signup
+- type: Login
+  url: https://signin.aws.amazon.com/
+- type: StatusPage
+  url: https://health.aws.amazon.com/health/status
+- type: Contact
+  url: https://aws.amazon.com/contact-us/
+- type: Integrations
+  url: https://aws.amazon.com/marketplace
+- type: UsageTerms
+  url: terms/amazon-deadline-cloud-terms-of-service.yml
+- type: DataProcessing
+  url: privacy/amazon-deadline-cloud-privacy-policy.yml
+- type: Attestations
+  url: compliance/amazon-deadline-cloud-compliance.yml
+- type: Eligibility
+  url: eligibility/amazon-deadline-cloud-eligibility.yml
+- type: AIPreferences
+  url: ai-preferences/amazon-deadline-cloud-ai-preferences.yml
 apis:
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-farms-api
   name: Amazon Deadline Cloud Farms API
@@ -61,21 +167,28 @@ apis:
     url: openapi/amazon-deadline-cloud-farms-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/deadline-cloud/getting-started/
   - type: Pricing
     url: https://aws.amazon.com/deadline-cloud/pricing/
   - type: FAQ
     url: https://aws.amazon.com/deadline-cloud/faqs/
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-farm-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-farm-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-farm-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-farms-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-farms-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-delete-farm-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-fleets-api
   name: Amazon Deadline Cloud Fleets API
   description: Operations for managing compute fleets
@@ -90,21 +203,28 @@ apis:
     url: openapi/amazon-deadline-cloud-fleets-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/deadline-cloud/getting-started/
   - type: Pricing
     url: https://aws.amazon.com/deadline-cloud/pricing/
   - type: FAQ
     url: https://aws.amazon.com/deadline-cloud/faqs/
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-fleet-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-fleet-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-fleet-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-fleets-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-fleets-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-delete-fleet-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-jobs-api
   name: Amazon Deadline Cloud Jobs API
   description: Operations for managing rendering jobs
@@ -119,21 +239,28 @@ apis:
     url: openapi/amazon-deadline-cloud-jobs-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/deadline-cloud/getting-started/
   - type: Pricing
     url: https://aws.amazon.com/deadline-cloud/pricing/
   - type: FAQ
     url: https://aws.amazon.com/deadline-cloud/faqs/
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-job-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-job-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-job-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-jobs-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-jobs-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-job-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-queues-api
   name: Amazon Deadline Cloud Queues API
   description: Operations for managing job queues within farms
@@ -146,21 +273,28 @@ apis:
     url: openapi/amazon-deadline-cloud-queues-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/deadline-cloud/getting-started/
   - type: Pricing
     url: https://aws.amazon.com/deadline-cloud/pricing/
   - type: FAQ
     url: https://aws.amazon.com/deadline-cloud/faqs/
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-queue-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-queue-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-queue-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-queues-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-queues-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-delete-queue-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-workers-api
   name: Amazon Deadline Cloud Workers API
   description: Operations for managing farm workers
@@ -173,25 +307,31 @@ apis:
     url: openapi/amazon-deadline-cloud-workers-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html
-  - type: GettingStarted
-    url: https://aws.amazon.com/deadline-cloud/getting-started/
   - type: Pricing
     url: https://aws.amazon.com/deadline-cloud/pricing/
   - type: FAQ
     url: https://aws.amazon.com/deadline-cloud/faqs/
   - type: SpectralRules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/rules/amazon-deadline-cloud-spectral-rules.yml
   - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/vocabulary/amazon-deadline-cloud-vocabulary.yaml
   - type: JSONLD
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+    url: https://raw.githubusercontent.com/api-evangelist/amazon-deadline-cloud/refs/heads/main/json-ld/amazon-deadline-cloud-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-worker-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-workers-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-worker-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-worker-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-workers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-delete-worker-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-budgets-api
   name: Amazon Deadline Cloud Deadline Cloud Budgets API
-  description: >-
-    The Deadline Cloud Budgets API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud budgets.
+  description: The Deadline Cloud Budgets API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud budgets.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -199,11 +339,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-budgets-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-budget-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-budget-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-budget-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-budgets-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-budgets-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-delete-budget-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-environments-api
   name: Amazon Deadline Cloud Deadline Cloud Environments API
-  description: >-
-    The Deadline Cloud Environments API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud
-    environments.
+  description: The Deadline Cloud Environments API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud environments.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -211,11 +361,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-environments-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-queue-environment-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-queue-environment-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-queue-environment-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-queue-environments-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-queue-environments-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-delete-queue-environment-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-license-endpoints-api
   name: Amazon Deadline Cloud Deadline Cloud License Endpoints API
-  description: >-
-    The Deadline Cloud License Endpoints API from Amazon Deadline Cloud — 2 operation(s) for deadline
-    cloud license endpoints.
+  description: The Deadline Cloud License Endpoints API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud license endpoints.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -223,10 +383,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-license-endpoints-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-license-endpoint-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-license-endpoint-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-license-endpoints-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-license-endpoints-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-delete-license-endpoint-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-license-endpoint-response-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-limits-api
   name: Amazon Deadline Cloud Deadline Cloud Limits API
-  description: >-
-    The Deadline Cloud Limits API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud limits.
+  description: The Deadline Cloud Limits API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud limits.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -234,10 +405,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-limits-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-limit-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-limit-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-limit-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-limits-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-limits-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-delete-limit-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-members-api
   name: Amazon Deadline Cloud Deadline Cloud Members API
-  description: >-
-    The Deadline Cloud Members API from Amazon Deadline Cloud — 8 operation(s) for deadline cloud members.
+  description: The Deadline Cloud Members API from Amazon Deadline Cloud — 8 operation(s) for deadline cloud members.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -245,11 +427,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-members-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-associate-member-to-job-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-associate-member-to-queue-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-associate-member-to-fleet-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-associate-member-to-farm-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-fleet-members-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-queue-members-response-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-metered-products-api
   name: Amazon Deadline Cloud Deadline Cloud Metered Products API
-  description: >-
-    The Deadline Cloud Metered Products API from Amazon Deadline Cloud — 3 operation(s) for deadline cloud
-    metered products.
+  description: The Deadline Cloud Metered Products API from Amazon Deadline Cloud — 3 operation(s) for deadline cloud metered products.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -257,10 +449,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-metered-products-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-metered-products-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-available-metered-products-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-metered-products-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-available-metered-products-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-delete-metered-product-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-put-metered-product-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-monitors-api
   name: Amazon Deadline Cloud Deadline Cloud Monitors API
-  description: >-
-    The Deadline Cloud Monitors API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud monitors.
+  description: The Deadline Cloud Monitors API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud monitors.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -268,11 +471,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-monitors-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-monitor-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-monitor-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-monitors-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-monitor-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-monitors-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-monitor-response-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-operations-api
   name: Amazon Deadline Cloud Deadline Cloud Operations API
-  description: >-
-    The Deadline Cloud Operations API from Amazon Deadline Cloud — 24 operation(s) for deadline cloud
-    operations.
+  description: The Deadline Cloud Operations API from Amazon Deadline Cloud — 24 operation(s) for deadline cloud operations.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -280,11 +493,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-operations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-session-action-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-sessions-statistics-aggregation-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-start-sessions-statistics-aggregation-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-memberships-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-session-actions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-sessions-statistics-aggregation-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-queue-fleet-associations-api
   name: Amazon Deadline Cloud Deadline Cloud Queue Fleet Associations API
-  description: >-
-    The Deadline Cloud Queue Fleet Associations API from Amazon Deadline Cloud — 2 operation(s) for deadline
-    cloud queue fleet associations.
+  description: The Deadline Cloud Queue Fleet Associations API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud queue fleet associations.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -292,11 +515,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-queue-fleet-associations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-queue-fleet-association-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-queue-fleet-associations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-queue-fleet-associations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-queue-fleet-association-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-queue-fleet-association-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-delete-queue-fleet-association-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-queue-limit-associations-api
   name: Amazon Deadline Cloud Deadline Cloud Queue Limit Associations API
-  description: >-
-    The Deadline Cloud Queue Limit Associations API from Amazon Deadline Cloud — 2 operation(s) for deadline
-    cloud queue limit associations.
+  description: The Deadline Cloud Queue Limit Associations API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud queue limit associations.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -304,10 +537,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-queue-limit-associations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-queue-limit-association-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-queue-limit-associations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-queue-limit-associations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-queue-limit-association-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-queue-limit-association-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-queue-limit-association-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-search-api
   name: Amazon Deadline Cloud Deadline Cloud Search API
-  description: >-
-    The Deadline Cloud Search API from Amazon Deadline Cloud — 4 operation(s) for deadline cloud search.
+  description: The Deadline Cloud Search API from Amazon Deadline Cloud — 4 operation(s) for deadline cloud search.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -315,10 +559,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-search-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-search-steps-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-search-tasks-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-search-workers-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-search-jobs-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-search-workers-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-search-steps-response-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-sessions-api
   name: Amazon Deadline Cloud Deadline Cloud Sessions API
-  description: >-
-    The Deadline Cloud Sessions API from Amazon Deadline Cloud — 3 operation(s) for deadline cloud sessions.
+  description: The Deadline Cloud Sessions API from Amazon Deadline Cloud — 3 operation(s) for deadline cloud sessions.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -326,10 +581,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-sessions-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-session-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-session-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-sessions-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-sessions-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-sessions-for-worker-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-session-request-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-steps-api
   name: Amazon Deadline Cloud Deadline Cloud Steps API
-  description: >-
-    The Deadline Cloud Steps API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud steps.
+  description: The Deadline Cloud Steps API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud steps.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -337,11 +603,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-steps-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-step-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-step-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-steps-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-steps-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-step-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-step-response-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-storage-profiles-api
   name: Amazon Deadline Cloud Deadline Cloud Storage Profiles API
-  description: >-
-    The Deadline Cloud Storage Profiles API from Amazon Deadline Cloud — 4 operation(s) for deadline cloud
-    storage profiles.
+  description: The Deadline Cloud Storage Profiles API from Amazon Deadline Cloud — 4 operation(s) for deadline cloud storage profiles.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -349,10 +625,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-storage-profiles-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-storage-profile-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-storage-profile-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-create-storage-profile-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-storage-profile-for-queue-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-storage-profiles-for-queue-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-storage-profiles-response-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-tags-api
   name: Amazon Deadline Cloud Deadline Cloud Tags API
-  description: >-
-    The Deadline Cloud Tags API from Amazon Deadline Cloud — 1 operation(s) for deadline cloud tags.
+  description: The Deadline Cloud Tags API from Amazon Deadline Cloud — 1 operation(s) for deadline cloud tags.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -360,10 +647,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-tags-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-tag-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-untag-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-tags-for-resource-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-tags-for-resource-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-tag-resource-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-untag-resource-response-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-tasks-api
   name: Amazon Deadline Cloud Deadline Cloud Tasks API
-  description: >-
-    The Deadline Cloud Tasks API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud tasks.
+  description: The Deadline Cloud Tasks API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud tasks.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -371,10 +669,21 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-tasks-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-task-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-task-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-tasks-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-tasks-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-task-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-update-task-response-schema.json
 - aid: amazon-deadline-cloud:amazon-deadline-cloud-volumes-api
   name: Amazon Deadline Cloud Deadline Cloud Volumes API
-  description: >-
-    The Deadline Cloud Volumes API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud volumes.
+  description: The Deadline Cloud Volumes API from Amazon Deadline Cloud — 2 operation(s) for deadline cloud volumes.
   humanURL: https://aws.amazon.com/deadline-cloud/
   baseURL: https://deadline.amazonaws.com
   tags:
@@ -382,68 +691,32 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/amazon-deadline-cloud-volumes-api-openapi.yml
-common:
-  - type: RateLimits
-    url: rate-limits/amazon-deadline-cloud-rate-limits.yml
-  - type: FinOps
-    url: finops/amazon-deadline-cloud-finops.yml
-  - type: Pricing
-    url: https://aws.amazon.com/deadline-cloud/pricing/
-  - type: Plans
-    url: plans/amazon-deadline-cloud-plans-pricing.yml
-  - type: CapabilityMap
-    url: capabilities/amazon-deadline-cloud-capability-edges.yml
-    name: Amazon Deadline Cloud Business Capability Map
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/amazon-deadline-cloud/overview
-  - type: AgenticAccess
-    url: agentic-access/amazon-deadline-cloud-agentic-access.yml
-  - type: TrustCenter
-    url: security/amazon-deadline-cloud-trust-center.yml
-  - type: VulnerabilityDisclosure
-    url: security/amazon-deadline-cloud-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/amazon-deadline-cloud-domain-security.yml
-  - type: Authentication
-    url: authentication/amazon-deadline-cloud-authentication.yml
-  - type: Portal
-    url: https://aws.amazon.com/deadline-cloud/
-  - type: Website
-    url: https://aws.amazon.com/deadline-cloud/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/deadline-cloud/
-  - type: TermsOfService
-    url: https://aws.amazon.com/service-terms/
-  - type: PrivacyPolicy
-    url: https://aws.amazon.com/privacy/
-  - type: Support
-    url: https://aws.amazon.com/premiumsupport/
-  - type: GitHubOrganization
-    url: https://github.com/aws
-  - type: Console
-    url: https://console.aws.amazon.com/deadline-cloud/
-  - type: Signup
-    url: https://portal.aws.amazon.com/billing/signup
-  - type: Login
-    url: https://signin.aws.amazon.com/
-  - type: StatusPage
-    url: https://health.aws.amazon.com/health/status
-  - type: Contact
-    url: https://aws.amazon.com/contact-us/
-  - type: Integrations
-    url: https://aws.amazon.com/marketplace
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-volume-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-volumes-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-list-volumes-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-get-volume-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-delete-volume-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-deadline-cloud-delete-volume-response-schema.json
 integrations:
-  - name: Sign in
-  - name: Agent Mode
-  - name: Why AWS Marketplace?
-  - name: Get started in AWS Marketplace
-  - name: Industry
-  - name: Resources
-  - name: Become a Channel Partner
-  - name: Sell in AWS Marketplace
-  - name: Manage Your Account
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
 x-parent: amazon-web-services
 x-relationship: product
+x-enrichment:
+  date: '2026-11-11'
+  status: enriched
+  artifacts_added: 4
+  pass: local-v6

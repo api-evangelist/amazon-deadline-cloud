@@ -2,6 +2,7 @@
 generated: '2026-09-20'
 method: searched
 source: https://aws.amazon.com/deadline-cloud/pricing/
+name: Amazon Deadline Cloud API Plans
 sources:
 - https://aws.amazon.com/deadline-cloud/pricing/
 provenance:
@@ -65,7 +66,7 @@ rate_limit_statements:
 - 3,000 IOPS free
 - 125 MB/s free
 x-canonical:
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
